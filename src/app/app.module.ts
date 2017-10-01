@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { SideBarComponent } from './shared/side-bar/side-bar.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { MainContentComponent } from './main-content/main-content.component';
 const appRoutes: Routes = [
   // { path: '', component: MainComponent },
   // { path: 'hero/:id',      component: HeroDetailComponent },
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     AppComponent,
     SideBarComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MainContentComponent
   ],
   imports: [
     BrowserModule
