@@ -5,19 +5,15 @@ import { AppComponent } from './app.component';
 import { SideBarComponent } from './shared/side-bar/side-bar.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { MainContentComponent } from './main-content/main-content.component';
+import { ListAllUsersComponent } from './list-all-users/list-all-users.component';
+import { UserViewsComponent } from './user-views/user-views.component';
+import { MainComponent } from './main/main.component';
 const appRoutes: Routes = [
-  // { path: '', component: MainComponent },
-  // { path: 'hero/:id',      component: HeroDetailComponent },
-  // {
-  //   path: 'heroes',
-  //   component: HeroListComponent,
-  //   data: { title: 'Heroes List' }
-  // },
-  // { path: '',
-  //   redirectTo: '/heroes',
-  //   pathMatch: 'full'
-  // },
-  // { path: '**', component: PageNotFoundComponent }
+  { path: '', component: MainContentComponent },
+  { path: 'ListAllUsersComponent', component: ListAllUsersComponent },
+  // { path: 'category', component: CategoryComponent },
+  // { path: 'contact', component: ContactComponent },
 ];
 
 @NgModule({
@@ -25,10 +21,18 @@ const appRoutes: Routes = [
     AppComponent,
     SideBarComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MainContentComponent,
+    ListAllUsersComponent,
+    UserViewsComponent,
+    MainComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
