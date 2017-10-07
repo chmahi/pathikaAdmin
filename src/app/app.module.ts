@@ -8,10 +8,21 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { ListAllUsersComponent } from './list-all-users/list-all-users.component';
 import { UserViewsComponent } from './user-views/user-views.component';
+import { AddBlocksComponent } from './add-blocks/add-blocks.component';
+import { AllPostsComponent } from './all-posts/all-posts.component';
+import { PostViewComponent } from './post-view/post-view.component';
+import { ReportedPostsComponent } from './reported-posts/reported-posts.component';
+import { TrashedPostsComponent } from './trashed-posts/trashed-posts.component';
 import { MainComponent } from './main/main.component';
 const appRoutes: Routes = [
   { path: '', component: MainContentComponent },
   { path: 'ListAllUsersComponent', component: ListAllUsersComponent },
+  { path: 'UserViewsComponent', component: UserViewsComponent },
+  { path: 'AddBlocksComponent', component: AddBlocksComponent },
+  { path: 'AllPostsComponent', component: AllPostsComponent },
+  { path: 'PostViewComponent', component: PostViewComponent },
+  { path: 'ReportedPostsComponent', component: ReportedPostsComponent },
+  { path: 'TrashedPostsComponent', component: TrashedPostsComponent },
   // { path: 'category', component: CategoryComponent },
   // { path: 'contact', component: ContactComponent },
 ];
@@ -25,7 +36,12 @@ const appRoutes: Routes = [
     MainContentComponent,
     ListAllUsersComponent,
     UserViewsComponent,
-    MainComponent
+    MainComponent,
+    AddBlocksComponent,
+    AllPostsComponent,
+    PostViewComponent,
+    ReportedPostsComponent,
+    TrashedPostsComponent
   ],
   imports: [
     BrowserModule,
