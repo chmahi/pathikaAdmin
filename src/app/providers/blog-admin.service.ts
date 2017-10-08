@@ -27,4 +27,17 @@ export class BlogAdminService {
         });
     });
   }
+    // for get all posts
+    getallposts(){
+      return new Promise(resolve => {
+        this.http.get('https://blogsterlnew.herokuapp.com/posts')
+          .map(res => res.json())
+          .subscribe(data => {
+            this.data = data;
+            resolve(this.data);
+          }, err =>{
+            resolve(err);
+          });
+      });
+    }
 }
