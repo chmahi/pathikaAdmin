@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import {Http, RequestOptions, Headers} from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
 import { AppComponent } from './app.component';
 import { BlogAdminService } from './providers/blog-admin.service';
 import { SideBarComponent } from './shared/side-bar/side-bar.component';
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
   { path: 'ListAllUsersComponent', component: ListAllUsersComponent },
   { path: 'UserViewsComponent', component: UserViewsComponent },
   { path: 'AddBlocksComponent', component: AddBlocksComponent },
-  { path: 'AllPostsComponent', component: AllPostsComponent },
+  { path: 'AllPostsComponent/:id', component: AllPostsComponent },
   { path: 'PostViewComponent', component: PostViewComponent },
   { path: 'ReportedPostsComponent', component: ReportedPostsComponent },
   { path: 'TrashedPostsComponent', component: TrashedPostsComponent },
@@ -49,6 +50,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpModule,
+    NgxPaginationModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
