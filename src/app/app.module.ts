@@ -20,15 +20,17 @@ import { TrashedPostsComponent } from './trashed-posts/trashed-posts.component';
 import { MainComponent } from './main/main.component';
 import { SigninComponent } from './signin/signin.component';
 const appRoutes: Routes = [
-  // { path: '', component: SigninComponent },
-  { path: '', component: MainContentComponent },
-  { path: 'ListAllUsersComponent', component: ListAllUsersComponent },
-  { path: 'UserViewsComponent', component: UserViewsComponent },
-  { path: 'AddBlocksComponent', component: AddBlocksComponent },
-  { path: 'AllPostsComponent/:id', component: AllPostsComponent },
-  { path: 'PostViewComponent', component: PostViewComponent },
-  { path: 'ReportedPostsComponent', component: ReportedPostsComponent },
-  { path: 'TrashedPostsComponent', component: TrashedPostsComponent },
+  { path: '', component: SigninComponent },
+  { path: 'main', component: MainComponent, children: [
+      { path: 'ListAllUsersComponent', component: ListAllUsersComponent },
+      { path: 'UserViewsComponent', component: UserViewsComponent },
+      { path: 'AddBlocksComponent', component: AddBlocksComponent },
+      { path: 'AllPostsComponent/:id', component: AllPostsComponent },
+      { path: 'PostViewComponent', component: PostViewComponent },
+      { path: 'ReportedPostsComponent', component: ReportedPostsComponent },
+      { path: 'TrashedPostsComponent', component: TrashedPostsComponent }
+  ]},
+
   // { path: 'category', component: CategoryComponent },
   // { path: 'contact', component: ContactComponent },
 ];
