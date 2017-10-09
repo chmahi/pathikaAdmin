@@ -18,7 +18,9 @@ import { PostViewComponent } from './post-view/post-view.component';
 import { ReportedPostsComponent } from './reported-posts/reported-posts.component';
 import { TrashedPostsComponent } from './trashed-posts/trashed-posts.component';
 import { MainComponent } from './main/main.component';
+import { SigninComponent } from './signin/signin.component';
 const appRoutes: Routes = [
+  // { path: '', component: SigninComponent },
   { path: '', component: MainContentComponent },
   { path: 'ListAllUsersComponent', component: ListAllUsersComponent },
   { path: 'UserViewsComponent', component: UserViewsComponent },
@@ -45,7 +47,8 @@ const appRoutes: Routes = [
     AllPostsComponent,
     PostViewComponent,
     ReportedPostsComponent,
-    TrashedPostsComponent
+    TrashedPostsComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
