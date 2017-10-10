@@ -40,4 +40,45 @@ export class BlogAdminService {
           });
       });
     }
+       // for login
+   public login(data) {
+    return new Promise(resolve => {
+      this.http.post('https://blogsterlnew.herokuapp.com/login', data)
+        .map(res => res.json())
+        .subscribe(data => {
+          console.log(data.header);
+          this.data = data;
+          resolve(this.data);
+        }, err =>{
+          resolve(err);
+        });
+    });
+  }
+   // for add category
+   public AddCategory(data) {
+    return new Promise(resolve => {
+      this.http.post('https://blogsterlnew.herokuapp.com/category',data)
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        }, err =>{
+          resolve(err);
+        });
+    });
+  }
+
+  // for get category
+  getCategory(){
+    return new Promise(resolve => {
+      this.http.get('https://blogsterlnew.herokuapp.com/category')
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        }, err =>{
+          resolve(err);
+        });
+    });
+  }
 }
