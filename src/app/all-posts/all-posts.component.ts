@@ -30,7 +30,7 @@ export class AllPostsComponent implements OnInit {
   }
 
   changePage(event){
-    this.router.navigate(['/AllPostsComponent/'+event]);
+    this.router.navigate(['/main/AllPostsComponent/'+event]);
     this.curPage = event;
   }
 }
