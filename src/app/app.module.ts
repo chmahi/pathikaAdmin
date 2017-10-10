@@ -19,6 +19,7 @@ import { ReportedPostsComponent } from './reported-posts/reported-posts.componen
 import { TrashedPostsComponent } from './trashed-posts/trashed-posts.component';
 import { MainComponent } from './main/main.component';
 import { SigninComponent } from './signin/signin.component';
+import { CategoryComponent } from './category/category.component';
 const appRoutes: Routes = [
   // { path: '', component: SigninComponent },
   { path: '', component: MainContentComponent },
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
     PostViewComponent,
     ReportedPostsComponent,
     TrashedPostsComponent,
-    SigninComponent
+    SigninComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
