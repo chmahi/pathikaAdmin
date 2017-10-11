@@ -15,7 +15,7 @@
                 <form (ngSubmit)="login(f)" #f="ngForm" novalidate>
                     <div class="log-input">
                         <div class="log-input-left">
-                            <input type="text" class="user" value="Yourname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}" name="email" [(ngModel)]="userData.email"/>
+                            <input type="text" class="user" value="Yourname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}" name="email" [(ngModel)]="userData.email" />
                         </div>
                         <span class="checkbox2">
                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
@@ -37,3 +37,17 @@
         </div>
     </div>
 </div>
+
+<bs-modal #myFirstModal>
+
+    <bs-modal-body>
+        {{message}}
+    </bs-modal-body>
+
+</bs-modal>
+<!-- 
+<modal #myFirstModal>
+    <modal-body>
+        
+    </modal-body>
+</modal> -->

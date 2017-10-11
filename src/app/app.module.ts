@@ -4,7 +4,8 @@ import { HttpModule } from '@angular/http';
 import {Http, RequestOptions, Headers} from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
-// import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
+import { BsModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
+
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BlogAdminService } from './providers/blog-admin.service';
@@ -63,7 +64,7 @@ const appRoutes: Routes = [
     HttpModule,
     NgxPaginationModule,
     FormsModule,
-    // Ng2Bs3ModalModule,
+    BsModalModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
