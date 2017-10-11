@@ -22,6 +22,7 @@ restForm(validVal: NgForm) {
   // for add category 
   addCategory(validVal: NgForm){
     if(validVal.valid){
+      this.category.imageLink = "Basic";
     this.blogAdmin.AddCategory(this.category)
         .then(
             data => {
