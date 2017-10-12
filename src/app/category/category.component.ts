@@ -1,13 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import{FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { BlogAdminService } from '../providers/blog-admin.service';
+import { BsModalComponent  } from 'ng2-bs3-modal';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+   @ViewChild('myFirstModal')
+  modal: BsModalComponent;
+  // encapsulation: ViewEncapsulation.None
+  message:String;
   category:any={};
   categories: any = {};
   constructor(private blogAdmin: BlogAdminService) {
@@ -20,7 +25,10 @@ export class CategoryComponent implements OnInit {
 restForm(validVal: NgForm) {
   validVal.resetForm();
 }
-
+  open(textContent:any) {
+    this.message = textContent;
+    this.modal.open('sm');
+  }
   myfile:any;
   fileChange(fileInput: any) {
     this.myfile = fileInput.target.files[0];
@@ -38,7 +46,7 @@ restForm(validVal: NgForm) {
   }
   // for add category 
   addCategory(validVal: NgForm){
-    if(validVal.valid){
+    if(validVal.valid && this.category.imageLink!=""){
 
     this.blogAdmin.AddCategory(this.category)
         .then(
@@ -52,6 +60,10 @@ restForm(validVal: NgForm) {
               // Log errors if any
               console.log(err);
             });
+    } else if(this.category.imageLink==""){
+      this.open("Upload an image!!");
+    } else {
+      this.open("Please fill all fields!!");
     }
   }
     // get categories

@@ -57,6 +57,8 @@ export class SigninComponent implements OnInit {
           }
           
         });
-    } 
+    } else {
+      this.open("Fill all fields");
+    }
   }
 }

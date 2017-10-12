@@ -15,7 +15,7 @@
                 <form (ngSubmit)="login(f)" #f="ngForm" novalidate>
                     <div class="log-input">
                         <div class="log-input-left">
-                            <input type="text" class="user" value="Yourname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}" name="email" [(ngModel)]="userData.email" />
+                            <input type="text" class="user" value="Yourname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}" name="email" [(ngModel)]="userData.email" required />
                         </div>
                         <span class="checkbox2">
                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
@@ -24,7 +24,7 @@
                     </div>
                     <div class="log-input">
                         <div class="log-input-left">
-                            <input type="password" class="lock" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password:';}" name="password" [(ngModel)]="userData.password" />
+                            <input type="password" class="lock" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password:';}" name="password" [(ngModel)]="userData.password" required />
                         </div>
                         <span class="checkbox2">
                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
