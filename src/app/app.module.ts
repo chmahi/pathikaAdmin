@@ -17,7 +17,6 @@ import { ListAllUsersComponent } from './list-all-users/list-all-users.component
 import { UserViewsComponent } from './user-views/user-views.component';
 import { AddBlocksComponent } from './add-blocks/add-blocks.component';
 import { AllPostsComponent } from './all-posts/all-posts.component';
-import { PostViewComponent } from './post-view/post-view.component';
 import { ReportedPostsComponent } from './reported-posts/reported-posts.component';
 import { TrashedPostsComponent } from './trashed-posts/trashed-posts.component';
 import { MainComponent } from './main/main.component';
@@ -30,8 +29,7 @@ const appRoutes: Routes = [
       { path: 'UserViewsComponent', component: UserViewsComponent },
       { path: 'AddBlocksComponent', component: AddBlocksComponent },
       { path: 'AllPostsComponent/:id', component: AllPostsComponent },
-      { path: 'PostViewComponent', component: PostViewComponent },
-      { path: 'ReportedPostsComponent', component: ReportedPostsComponent },
+         { path: 'ReportedPostsComponent', component: ReportedPostsComponent },
       { path: 'TrashedPostsComponent', component: TrashedPostsComponent },
       { path: 'CategoryComponent', component: CategoryComponent }
   ]},
@@ -52,7 +50,6 @@ const appRoutes: Routes = [
     MainComponent,
     AddBlocksComponent,
     AllPostsComponent,
-    PostViewComponent,
     ReportedPostsComponent,
     TrashedPostsComponent,
     SigninComponent,

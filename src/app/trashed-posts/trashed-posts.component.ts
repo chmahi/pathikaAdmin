@@ -19,7 +19,6 @@ export class TrashedPostsComponent implements OnInit {
   this.blogAdmin.trashedPosts()
   .then(data =>{
    this.posts = data;
-  }
-  )
+  })
 }
 }

@@ -10,7 +10,6 @@
             <th>Post name</th>
             <th>User</th>
             <th>likes</th>
-            <th>Actions</th>
           </tr>
           </thead>
           <tbody>
@@ -19,12 +18,7 @@
             <td>{{post.title}}</td>
             <td>{{post._user}}</td>
             <td>{{post.count}}</td>
-            <td>
-                <button type="button" class="btn btn_5 btn-lg btn-primary">View</button>
-                <button type="button" class="btn btn_5 btn-lg btn-primary">Hold</button>
-                <button type="button" class="btn btn_5 btn-lg btn-primary">Notify User</button>
-            </td>
-          </tr>
+            </tr>
           </tbody>
         </table>
         <pagination-controls (pageChange)="changePage($event)" autoHide="true" previousLabel="Previous" nextLabel="Next"></pagination-controls>

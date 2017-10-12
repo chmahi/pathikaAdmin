@@ -15,6 +15,7 @@ export class CategoryComponent implements OnInit {
   message:String;
   category:any={};
   categories: any = {};
+  Categories;
   constructor(private blogAdmin: BlogAdminService) {
     this.Getcategories();
    }
@@ -73,4 +74,16 @@ restForm(validVal: NgForm) {
           this.categories = data;
         });
     }
+    DelCategory(cate) {
+      console.log(cate);
+      this.blogAdmin.deleteCategory(cate.id)
+        .then(
+          data => {
+        console.log(data);
+          }, //Bind to view
+          err => {
+            // Log errors if any
+            console.log(err);
+          });
+  }
 }
