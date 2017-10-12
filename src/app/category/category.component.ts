@@ -9,6 +9,7 @@ import { BlogAdminService } from '../providers/blog-admin.service';
 })
 export class CategoryComponent implements OnInit {
   category:any={};
+  categories: any = {};
   constructor(private blogAdmin: BlogAdminService) {
     this.Getcategories();
    }
@@ -19,15 +20,32 @@ export class CategoryComponent implements OnInit {
 restForm(validVal: NgForm) {
   validVal.resetForm();
 }
+
+  myfile:any;
+  fileChange(fileInput: any) {
+    this.myfile = fileInput.target.files[0];
+    //let fileList: FileList = event.target.files;
+      this.blogAdmin.fileUpload(this.myfile)
+      .then(data => {
+        //console.log(data);
+        this.category.imageLink = '';
+        this.category.imageLink = (data['files'][0].url);
+      }, //Bind to view
+      err => {
+        // Log errors if any
+        console.log(err);
+      });
+  }
   // for add category 
   addCategory(validVal: NgForm){
     if(validVal.valid){
-      this.category.imageLink = "Basic";
+
     this.blogAdmin.AddCategory(this.category)
         .then(
             data => {
               if(validVal.valid){
                 this.restForm(validVal);
+                this.Getcategories();
                }
             }, 
             err => {
@@ -40,7 +58,7 @@ restForm(validVal: NgForm) {
     Getcategories() {
       this.blogAdmin.getCategory()
         .then(data => {      
-          this.category = data;
+          this.categories = data;
         });
     }
 }
