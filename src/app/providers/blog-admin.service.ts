@@ -81,4 +81,30 @@ export class BlogAdminService {
         });
     });
   }
+    // for trashed Posts 
+    trashedPosts() {
+      return new Promise(resolve => {
+        this.http.get('https://blogsterlnew.herokuapp.com/trashedPosts')
+          .map(res => res.json())
+          .subscribe(data => {
+            this.data = data;
+            resolve(this.data);
+          }, err =>{
+            resolve(err);
+          });
+      });
+    }
+        // for reported Posts 
+        reportedPosts() {
+          return new Promise(resolve => {
+            this.http.get('https://blogsterlnew.herokuapp.com/reportedPosts')
+              .map(res => res.json())
+              .subscribe(data => {
+                this.data = data;
+                resolve(this.data);
+              }, err =>{
+                resolve(err);
+              });
+          });
+        }
 }
