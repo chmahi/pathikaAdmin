@@ -127,7 +127,7 @@ export class BlogAdminService {
   }
    deleteCategory(id) {
     return new Promise(resolve => {
-      this.http.delete('https://blogsterlnew.herokuapp.com/category/category' + id)
+      this.http.delete('https://blogsterlnew.herokuapp.com/category/' + id)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
