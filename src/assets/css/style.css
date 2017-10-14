@@ -8928,3 +8928,15 @@ p.creating {
 .submitCategory{
     margin-bottom: 20px;
 }
+.loadingOuter{
+    position: relative;
+    z-index: 1;
+}
+.loadingBar{
+    background: url('../images/tenor.gif')no-repeat center center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    background-size: 50px 50px;
+}

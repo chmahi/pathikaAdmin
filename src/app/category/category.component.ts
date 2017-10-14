@@ -16,6 +16,7 @@ export class CategoryComponent implements OnInit {
   category: any = {};
   categories: any = {};
   Categories;
+  showLoading =false;
   constructor(private blogAdmin: BlogAdminService) {
     this.Getcategories();
   }
@@ -32,6 +33,7 @@ export class CategoryComponent implements OnInit {
   }
   myfile: any;
   fileChange(fileInput: any) {
+    this.showLoading = true;
     this.myfile = fileInput.target.files[0];
     //let fileList: FileList = event.target.files;
     this.blogAdmin.fileUpload(this.myfile)
@@ -39,6 +41,7 @@ export class CategoryComponent implements OnInit {
         //console.log(data);
         this.category.imageLink = '';
         this.category.imageLink = (data['files'][0].url);
+        this.showLoading = false;
       }, //Bind to view
       err => {
         // Log errors if any

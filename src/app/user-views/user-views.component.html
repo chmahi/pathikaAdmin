@@ -7,32 +7,21 @@
           <thead>
           <tr>
             <th>S.No</th>
-            <th>Name</th>
-            <th>Rating</th>
+            <th>firstname</th>
+            <th>lastname</th>
             <th>Email</th>
-            <th>Member since</th>
-            <th>Notify</th>
             <th>Total Posts</th>
-            <th>Status</th>
-            <th>About</th>
-            <th>Online Profiles.</th>
           </tr>
           </thead>
           <tbody>
-          <tr class="active">
-            <th scope="row">1</th>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
+            <tr class="active" *ngFor="let user of users let i = index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{user.firstname}}</td>
+              <td>{{user.lastname}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.count}}</td>
           </tr>
-   
-          </tbody>
+        </tbody>
         </table>
          </div>
         </div>

@@ -2,7 +2,9 @@
     <div class="graphs">
         <h3 class="blank1">Add Category</h3>
         <div class="tab-content">
-            <div class="tab-pane active" id="horizontal-form">
+            <div class="tab-pane active loadingOuter" id="horizontal-form">
+                    <div class="loadingBar" *ngIf="showLoading">
+                        </div>
                 <form class="form-horizontal" (ngSubmit)="addCategory(f,category)" #f="ngForm" novalidate>
 
                     <div class="form-group">
