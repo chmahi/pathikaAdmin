@@ -17,10 +17,10 @@
                     <tbody>
                         <tr class="active" *ngFor="let post of posts let i = index">
                             <th scope="row">{{i+1}}</th>
-                            <td></td>
+                            <td>{{post.user.firstname}}</td>
                             <td>{{post.title}}</td>
-                            <td>{{post._category.name}}</td>
-                            <td></td>
+                            <td>{{post.category.name}}</td>
+                            <td>{{post.likes}}</td>
                             <td>
                                 <button type="button" class="btn btn_5 btn-lg btn-primary">Suspend</button>
                                 <button type="button" class="btn btn_5 btn-lg btn-primary">Notify</button>
