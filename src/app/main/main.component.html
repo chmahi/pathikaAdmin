@@ -1,8 +1,24 @@
-<section>
-		<!--Header start-->
-		<header-component></header-component>
-		<!--Header end-->
-		<!--mainContent start-->
+<!-- <section>
+
 		<mainContent-component></mainContent-component>
-		<!--mainContent end-->
-	</section>
+
+	</section> -->
+
+<div class="main-content">
+    <!--Header start-->
+    <header-component></header-component>
+    <!--Header end-->
+
+    <!--to load middle components-->
+    <router-outlet></router-outlet>
+</div>
+
+
+<!--sidebar start-->
+<sideBar-component></sideBar-component>
+<!--sidebar end-->
+
+
+<!--footer start-->
+<footer-component></footer-component>
+<!--footer end-->
