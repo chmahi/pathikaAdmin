@@ -11,8 +11,8 @@ import { BsModalComponent } from 'ng2-bs3-modal';
 })
 export class UserViewsComponent implements OnInit {
   users:any = {};
-  @ViewChild('myFirstModal')
-  modal: BsModalComponent;
+  // @ViewChild('myFirstModal')
+  // modal: BsModalComponent;
   message:any;
   encapsulation: ViewEncapsulation.None 
   @ViewChild('croppImage')
@@ -25,6 +25,8 @@ export class UserViewsComponent implements OnInit {
     croppedWidth:number;
     croppedHeight:number;
   @ViewChild('cropper', undefined) cropper:ImageCropperComponent;
+
+
   constructor(private blogAdmin: BlogAdminService) { 
     this.name = 'Angular2'
     this.cropperSettings1 = new CropperSettings();
@@ -61,6 +63,12 @@ export class UserViewsComponent implements OnInit {
       console.log(this.users.firstname);
     });
 }
+
+
+open(textContent:any) {
+    // this.message = textContent;
+    this.cropBox.open('sm');
+  }
 
 EditUser(){
    var a = JSON.parse(localStorage.getItem('userData'));
