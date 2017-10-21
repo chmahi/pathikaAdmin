@@ -58,6 +58,7 @@ const appRoutes: Routes = [
     SigninComponent,
     CategoryComponent,
     UserProfileComponent,
+    ImageCropperComponent,
     // Ng2Bs3ModalModule,
   ],
   imports: [
