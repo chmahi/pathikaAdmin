@@ -22,6 +22,7 @@ import { TrashedPostsComponent } from './trashed-posts/trashed-posts.component';
 import { MainComponent } from './main/main.component';
 import { SigninComponent } from './signin/signin.component';
 import { CategoryComponent } from './category/category.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 const appRoutes: Routes = [
   { path: '', component: SigninComponent },
   { path: 'main', component: MainComponent, children: [
@@ -54,6 +55,7 @@ const appRoutes: Routes = [
     TrashedPostsComponent,
     SigninComponent,
     CategoryComponent,
+    UserProfileComponent,
     // Ng2Bs3ModalModule,
   ],
   imports: [

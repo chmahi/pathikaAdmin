@@ -136,5 +136,29 @@ export class BlogAdminService {
     });
   }
 
+  getUserDetails(id) {
+    return new Promise(resolve => {
+      this.http.get('https://blogsterlnew.herokuapp.com/listUser/' + id)
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        });
+    });
+  }
+
+  public editProfile(idval,data) {
+      return new Promise(resolve => {
+        this.http.post('https://blogsterlnew.herokuapp.com/profileEdit/'+idval, data)
+          .map(res => res.json())
+          .subscribe(data => {
+            this.data = data;
+            resolve(this.data);
+          }, err =>{
+          resolve(err);
+        });
+      });
+    }
+
 
 }
