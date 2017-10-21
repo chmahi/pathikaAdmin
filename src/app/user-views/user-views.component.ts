@@ -24,7 +24,7 @@ export class UserViewsComponent implements OnInit {
      cropperSettings1:CropperSettings;
     croppedWidth:number;
     croppedHeight:number;
-  @ViewChild('cropper', undefined) cropper:ImageCropperComponent;
+  // @ViewChild('cropper', undefined) cropper:ImageCropperComponent;
 
 
   constructor(private blogAdmin: BlogAdminService) { 
@@ -65,10 +65,10 @@ export class UserViewsComponent implements OnInit {
 }
 
 
-open(textContent:any) {
+open() {
     // this.message = textContent;
-    this.cropBox.open('sm');
-  }
+    this.cropBox.open('md');
+}
 
 EditUser(){
    var a = JSON.parse(localStorage.getItem('userData'));

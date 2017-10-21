@@ -73,21 +73,20 @@
         </div>
     </div>
 </div>
-
+<button (click)="open()">Test</button>
 <bs-modal #croppImage>
     <bs-modal-header>
         <h4 class="modal-title">Upload Profile Pic</h4>
     </bs-modal-header>
     <bs-modal-body>
         <div>
-            fghfdghfgh
-            <!-- <img-cropper [image]="data1" [settings]="cropperSettings1" (onCrop)="cropped($event)"></img-cropper>
+            <img-cropper [image]="data1" [settings]="cropperSettings1" (onCrop)="cropped($event)"></img-cropper>
             <br>
             <span class="result" *ngIf="data1.image">
                     <img class="img-avatar" [src]="data1.image" width="120" height="120">
                 </span>
             <br>
-            <button *ngIf="data1.image" (click)="uploadImageFile(data1.image); cropBox.close()">Upload Image</button> -->
+            <button *ngIf="data1.image" (click)="uploadImageFile(data1.image); cropBox.close()">Upload Image</button>
         </div>
     </bs-modal-body>
 </bs-modal>
