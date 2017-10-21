@@ -5,6 +5,8 @@ import {Http, RequestOptions, Headers} from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
 import { BsModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
+import {ImageCropperComponent} from 'ng2-img-cropper';
+// import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -64,6 +66,7 @@ const appRoutes: Routes = [
     NgxPaginationModule,
     FormsModule,
     BsModalModule,
+    // Ng2Bs3ModalModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
