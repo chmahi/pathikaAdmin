@@ -11,7 +11,7 @@ import { BsModalComponent } from 'ng2-bs3-modal';
 })
 export class UserViewsComponent implements OnInit {
   users:any = {};
-  @ViewChild('myFirstModal')
+  @ViewChild('modalNew')
   modal: BsModalComponent;
   message:any;
   encapsulation: ViewEncapsulation.None 
@@ -67,11 +67,16 @@ open() {
     // this.message = textContent;
     this.cropBox.open('md');
 }
+openMessage(textContent) {
+    this.message = textContent;
+    this.modal.open('sm');
+}
 
 EditUser(){
    var a = JSON.parse(localStorage.getItem('userData'));
    this.blogAdmin.editProfile(a.userId,this.users)
    .then(data => {
+    this.openMessage("Update Successfull");
     console.log(data);
    })
 }
@@ -100,8 +105,9 @@ fileChangeListener($event) {
     // this.showSpinner = true;
     this.blogAdmin.fileUploadBase64(fileVal)
     .then(data => {     
+      this.openMessage("Image upload successfull");
       this.myfile = data;
-      this.profile.imageURL = this.myfile.imageURL;
+      this.users.imageURL = this.myfile.imageURL;
       // this.profile.userDetails.image = (this.myfile.imageURL);
       // this.showLoading = false;    
       // this.showSpinner = false;
