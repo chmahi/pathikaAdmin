@@ -8940,3 +8940,8 @@ p.creating {
     z-index: 2;
     background-size: 50px 50px;
 }
+.profilePic {
+    width: 100% !important;
+    border: 1px solid #ccc;
+    margin-bottom: 13px;
+}
