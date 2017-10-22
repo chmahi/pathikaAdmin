@@ -62,6 +62,12 @@ export class UserViewsComponent implements OnInit {
     });
 }
 
+
+open() {
+    // this.message = textContent;
+    this.cropBox.open('md');
+}
+
 EditUser(){
    var a = JSON.parse(localStorage.getItem('userData'));
    this.blogAdmin.editProfile(a.userId,this.users)
