@@ -63,15 +63,13 @@ export class UserViewsComponent implements OnInit {
     .then(data => {      
       this.loading = false;
       this.users = data[0];
-      console.log(this.users.firstname);
     });
 }
 
-
 open() {
-    // this.message = textContent;
     this.cropBox.open('md');
 }
+
 openMessage(textContent) {
     this.message = textContent;
     this.modal.open('sm');
@@ -87,11 +85,11 @@ EditUser(){
     console.log(data);
    })
 }
+
 cropped(bounds:Bounds) {
   this.croppedHeight =bounds.bottom-bounds.top;
   this.croppedWidth = bounds.right-bounds.left;
 }
-
 
 fileChangeListener($event) {
   var image:any = new Image();
