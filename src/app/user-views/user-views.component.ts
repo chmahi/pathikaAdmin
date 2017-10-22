@@ -69,4 +69,45 @@ EditUser(){
     console.log(data);
    })
 }
+cropped(bounds:Bounds) {
+  this.croppedHeight =bounds.bottom-bounds.top;
+  this.croppedWidth = bounds.right-bounds.left;
+}
+
+
+fileChangeListener($event) {
+  var image:any = new Image();
+  var file:File = $event.target.files[0];
+  var myReader:FileReader = new FileReader();
+  var that = this;
+  myReader.onloadend = function (loadEvent:any) {
+      image.src = loadEvent.target.result;
+      that.cropper.setImage(image);
+
+  };
+  myReader.readAsDataURL(file);
+  }
+
+
+ public uploadImageFile(fileVal){
+    // this.modalBig.close();
+    // this.showSpinner = true;
+    this.blogAdmin.fileUploadBase64(fileVal)
+    .then(data => {     
+      this.myfile = data;
+      this.profile.imageURL = this.myfile.imageURL;
+      // this.profile.userDetails.image = (this.myfile.imageURL);
+      // this.showLoading = false;    
+      // this.showSpinner = false;
+    }, //Bind to view
+    err => {
+      // Log errors if any
+      console.log(err);
+    });
+ }
+
+myfile:any;
+cropImage() {
+    this.cropBox.open('md');
+}
 }

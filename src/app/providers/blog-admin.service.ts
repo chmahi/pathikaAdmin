@@ -160,5 +160,20 @@ export class BlogAdminService {
       });
     }
 
+    public fileUploadBase64(fileVal){
+      var data:any = {
+       imgbase64:fileVal
+     }
+ 
+     return new Promise(resolve => {
+       this.http.post('https://blogsterlnew.herokuapp.com/file/upload64/', data)    
+         .map(res => res.json())
+         .subscribe(data => {
+           // console.log(data)
+           this.data = data;
+           resolve(this.data);
+         })
+     });
+   }
 
 }
