@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import {Http, RequestOptions, Headers} from '@angular/http';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
 import { BsModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 import {ImageCropperComponent} from 'ng2-img-cropper';
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 // import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
@@ -41,9 +43,32 @@ const appRoutes: Routes = [
   // { path: 'contact', component: ContactComponent },
 ];
 
+
+@Pipe({ name: 'safeHtml'})
+export class SafeHtmlPipe implements PipeTransform  {
+  constructor(private sanitized: DomSanitizer) {}
+  transform(value) {
+    console.log(this.sanitized.bypassSecurityTrustHtml(value)["changingThisBreaksApplicationSecurity"]);
+    return "url("+this.sanitized.bypassSecurityTrustHtml(value)["changingThisBreaksApplicationSecurity"]+")";
+  }
+}
+
+@Pipe({ name: 'safeHtmlURL'})
+export class safeHtmlURL implements PipeTransform  {
+  constructor(private sanitized: DomSanitizer) {}
+  transform(value) {
+    console.log(this.sanitized.bypassSecurityTrustHtml(value)["changingThisBreaksApplicationSecurity"]);
+    return this.sanitized.bypassSecurityTrustHtml(value)["changingThisBreaksApplicationSecurity"];
+  }
+}
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
+    SafeHtmlPipe,
+    safeHtmlURL,
     SideBarComponent,
     HeaderComponent,
     FooterComponent,
