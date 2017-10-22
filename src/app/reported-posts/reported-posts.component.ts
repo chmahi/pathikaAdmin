@@ -7,6 +7,7 @@ import { BlogAdminService } from '../providers/blog-admin.service';
 })
 export class ReportedPostsComponent implements OnInit {
   posts;
+  loading = false;
   constructor(private blogAdmin: BlogAdminService) { 
     this.reportedPosts();
   }
@@ -15,8 +16,10 @@ export class ReportedPostsComponent implements OnInit {
   }
  // for delete posts
  reportedPosts(){
+  this.loading = true;
   this.blogAdmin.reportedPosts()
   .then(data =>{
+    this.loading = false;
    this.posts = data;
   })
 }

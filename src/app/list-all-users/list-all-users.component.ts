@@ -7,6 +7,7 @@ import { BlogAdminService } from '../providers/blog-admin.service';
 })
 export class ListAllUsersComponent implements OnInit {
   users;
+  loading = false;
   constructor(private blogAdmin: BlogAdminService) {
     this.GetAllUsers();
    }
@@ -15,8 +16,10 @@ export class ListAllUsersComponent implements OnInit {
   }
  // for get All Users
  GetAllUsers() {
+  this.loading = true;
   this.blogAdmin.getAllusers()
-    .then(data => {      
+    .then(data => { 
+      this.loading = false;     
       this.users = data;
     });
 }

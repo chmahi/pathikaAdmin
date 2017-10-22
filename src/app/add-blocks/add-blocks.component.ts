@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-blocks.component.css']
 })
 export class AddBlocksComponent implements OnInit {
-
+  loading = false;
   constructor() { }
 
   ngOnInit() {

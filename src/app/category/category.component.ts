@@ -16,6 +16,7 @@ export class CategoryComponent implements OnInit {
   category: any = {};
   categories: any = {};
   Categories;
+  loading = false;
   showLoading =false;
   constructor(private blogAdmin: BlogAdminService) {
     this.Getcategories();
@@ -50,11 +51,13 @@ export class CategoryComponent implements OnInit {
   }
   // for add category 
   addCategory(validVal: NgForm) {
+    this.loading = true;
     if (validVal.valid && this.category.imageLink != "") {
 
       this.blogAdmin.AddCategory(this.category)
         .then(
         data => {
+          this.loading = false;
           if (validVal.valid) {
             this.restForm(validVal);
             this.Getcategories();
@@ -72,8 +75,10 @@ export class CategoryComponent implements OnInit {
   }
   // get categories
   Getcategories() {
+    this.loading = true;
     this.blogAdmin.getCategory()
       .then(data => {
+        this.loading = false;
         this.categories = data;
       });
   }
