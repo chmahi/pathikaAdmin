@@ -8925,14 +8925,17 @@ p.creating {
         width: 100%;
     }
 }
-.submitCategory{
+
+.submitCategory {
     margin-bottom: 20px;
 }
-.loadingOuter{
+
+.loadingOuter {
     position: relative;
     z-index: 1;
 }
-.loadingBar{
+
+.loadingBar {
     background: url('../images/tenor.gif')no-repeat center center;
     height: 100%;
     width: 100%;
@@ -8940,8 +8943,27 @@ p.creating {
     z-index: 2;
     background-size: 50px 50px;
 }
+
 .profilePic {
     width: 100% !important;
     border: 1px solid #ccc;
     margin-bottom: 13px;
+}
+
+.main-content {
+    position: relative;
+}
+
+.main-content .loaderBox {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url(../images/Spinner.svg);
+    background-color: rgba(0, 0, 0, 0.4);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100px 100px;
+    z-index: 99;
 }

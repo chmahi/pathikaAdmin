@@ -10,6 +10,7 @@ export class AllPostsComponent implements OnInit {
   posts;
   curPage = '1';
   itemsPPage = 10;
+  loading = false;
   constructor(private blogAdmin: BlogAdminService,private route: ActivatedRoute,public router: Router) {
     this.Getposts();
     this.curPage = route.params['_value']['id'];
@@ -19,8 +20,10 @@ export class AllPostsComponent implements OnInit {
   }
  // for get posts
  Getposts() {
+   this.loading = true;
   this.blogAdmin.getallposts()
     .then(data => {      
+      this.loading = false;
       this.posts = data;
     });
 }

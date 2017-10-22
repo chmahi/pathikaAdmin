@@ -20,6 +20,7 @@ export class UserViewsComponent implements OnInit {
    data1:any;
    profile:any = {};
    name:any;
+   loading = false;
    a:any;
      cropperSettings1:CropperSettings;
     croppedWidth:number;
@@ -55,10 +56,12 @@ export class UserViewsComponent implements OnInit {
   }
  // for get All Users
  GetUser() {
+   this.loading = true;
    var a = JSON.parse(localStorage.getItem('userData'));
   console.log(a.firstname);
   this.blogAdmin.getUserDetails(a.userId)
     .then(data => {      
+      this.loading = false;
       this.users = data[0];
       console.log(this.users.firstname);
     });
@@ -75,9 +78,11 @@ openMessage(textContent) {
 }
 
 EditUser(){
+  this.loading = true;
    var a = JSON.parse(localStorage.getItem('userData'));
    this.blogAdmin.editProfile(a.userId,this.users)
    .then(data => {
+     this.loading = false;
     this.openMessage("Update Successfull");
     console.log(data);
    })
@@ -105,8 +110,10 @@ fileChangeListener($event) {
  public uploadImageFile(fileVal){
     // this.modalBig.close();
     // this.showSpinner = true;
+    this.loading = true;
     this.blogAdmin.fileUploadBase64(fileVal)
     .then(data => {     
+      this.loading = false;
       this.openMessage("Image upload successfull");
       this.myfile = data;
       this.users.imageURL = this.myfile.imageURL;
