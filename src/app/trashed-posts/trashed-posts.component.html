@@ -1,12 +1,11 @@
-<div *ngIf="posts.length == 0">
-    No Posts Found
+<div class="loaderBox" *ngIf="loading">
 </div>
-<div class="loaderBox" *ngIf="loading"></div>
 <div id="page-wrapper">
     <div class="graphs">
         <h3 class="blank1">Trashed Posts</h3>
         <div class="xs tabls">
             <div class="bs-example4" data-example-id="contextual-table">
+
                 <table class="table">
                     <thead>
                         <tr>
@@ -33,6 +32,9 @@
                         </tr>
                     </tbody>
                 </table>
+                <div *ngIf="posts.length == 0">
+                    No Posts Found
+                </div>
             </div>
         </div>
     </div>

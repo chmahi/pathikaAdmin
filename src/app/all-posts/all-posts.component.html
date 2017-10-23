@@ -7,6 +7,7 @@
         <h3 class="blank1">List All Posts</h3>
         <div class="xs tabls">
             <div class="bs-example4" data-example-id="contextual-table">
+
                 <table class="table">
                     <thead>
                         <tr>
@@ -25,6 +26,9 @@
                         </tr>
                     </tbody>
                 </table>
+                <div *ngIf="posts.length == 0">
+                    No Posts Found
+                </div>
                 <pagination-controls (pageChange)="changePage($event)" autoHide="true" previousLabel="Previous" nextLabel="Next"></pagination-controls>
             </div>
 
