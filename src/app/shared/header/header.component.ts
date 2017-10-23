@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router,ActivatedRoute } from '@angular/router';
 declare var jQuery: any;
 
 @Component({
@@ -10,7 +10,7 @@ declare var jQuery: any;
 
 export class HeaderComponent implements OnInit {
 
-  constructor() {
+  constructor(private route: ActivatedRoute,public router: Router) {
 
         // Menu Toggle
     // jQuery('.toggle-btn').click(function() {
@@ -90,6 +90,11 @@ export class HeaderComponent implements OnInit {
     //     }
     // });
       ngOnInit() {
+}
+
+logout(){
+  this.router.navigate(['/login']);
+  localStorage.removeItem('userData');
 }
    }
 

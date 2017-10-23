@@ -27,6 +27,7 @@ import { MainComponent } from './main/main.component';
 import { SigninComponent } from './signin/signin.component';
 import { CategoryComponent } from './category/category.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { SettingsComponent } from './settings/settings.component';
 const appRoutes: Routes = [
   { path: '', component: SigninComponent },
   { path: 'main', component: MainComponent, children: [
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
       { path: 'AllPostsComponent/:id', component: AllPostsComponent },
          { path: 'ReportedPostsComponent', component: ReportedPostsComponent },
       { path: 'TrashedPostsComponent', component: TrashedPostsComponent },
-      { path: 'CategoryComponent', component: CategoryComponent }
+      { path: 'CategoryComponent', component: CategoryComponent },
+      { path: 'Settings', component: SettingsComponent }
   ]},
 
   // { path: 'category', component: CategoryComponent },
@@ -84,6 +86,7 @@ export class safeHtmlURL implements PipeTransform  {
     CategoryComponent,
     UserProfileComponent,
     ImageCropperComponent,
+    SettingsComponent,
     // Ng2Bs3ModalModule,
   ],
   imports: [
