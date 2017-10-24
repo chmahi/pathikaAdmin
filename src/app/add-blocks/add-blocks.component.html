@@ -7,26 +7,27 @@
             <div class="tab-pane active loadingOuter" id="horizontal-form">
                 <div class="loadingBar" *ngIf="showLoading">
                 </div>
-                <form class="form-horizontal" (ngSubmit)="addCategory(f,category)" #f="ngForm" novalidate>
+                <form class="form-horizontal" (ngSubmit)="AddadsBlock(f,add)" #f="ngForm" novalidate>
 
                     <div class="form-group">
                         <label for="mediuminput" class="col-sm-2 control-label">Ad Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control1" id="mediuminput" placeholder="Ad name" name="name" required>
+                            <input type="text" class="form-control1" id="mediuminput" placeholder="Ad name" [(ngModel)]="add.adname" name="name" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="mediuminput" class="col-sm-2 control-label">Placement</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control1" id="mediuminput" placeholder="About" name="about" [(ngModel)]="category.about" required>
+                            <input type="text" class="form-control1" id="mediuminput" placeholder="About" name="adPlacement" [(ngModel)]="add.adPlacement"
+                                required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="mediuminput" class="col-sm-2 control-label">Ad Content</label>
                         <div class="col-sm-8">
-                            <textarea id="file-input" rows="10" cols="20" class="form-control" placeholder="Upload file" required> </textarea>
+                            <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adData" name="adData" placeholder="Upload file"
+                                required> </textarea>
                         </div>
-                        <div class="col-md-2"><img width="100" src="{{category.imageLink}}" /></div>
                     </div>
 
                     <div class="row submitCategory">
@@ -43,50 +44,26 @@
         <h3 class="blank1">Advertisement Blocks</h3>
         <div class="xs tabls">
             <div class="bs-example4" data-example-id="contextual-table">
+                <div *ngIf="adds.length == 0">
+                    No Posts Found
+                </div>
                 <table class="table">
                     <thead>
                         <tr>
                             <th>S.no</th>
                             <th>Ad Name</th>
                             <th>Placement</th>
-                            <th>Ad Text/Soure</th>
-
+                            <th>Ad Text/Source</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="active">
-                            <th scope="row">1</th>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-
-                        </tr>
-                        <tr class="success">
-                            <th scope="row">3</th>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-
-                        </tr>
-                        <tr class="info">
-                            <th scope="row">5</th>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
+                        <tr class="active" *ngFor="let ad of adds let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{ad.adname}}</td>
+                            <td>{{ad.adPlacement}}</td>
+                            <td>{{ad.adData}}</td>
+                           
                         </tr>
                     </tbody>
                 </table>
@@ -94,3 +71,10 @@
         </div>
     </div>
 </div>
+<bs-modal #myFirstModal>
+
+    <bs-modal-body>
+        {{message}}
+    </bs-modal-body>
+
+</bs-modal>

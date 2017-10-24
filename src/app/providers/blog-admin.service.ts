@@ -176,4 +176,31 @@ export class BlogAdminService {
      });
    }
 
+     // for ads
+  public adsBlock(userid,data) {
+    return new Promise(resolve => {
+      this.http.post('https://blogsterlnew.herokuapp.com/ads/'+userid, data)
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        }, err => {
+          resolve(err);
+        });
+    });
+  }
+
+    // for get ads  
+    getadsBlock(userid) {
+      return new Promise(resolve => {
+        this.http.get('https://blogsterlnew.herokuapp.com/ads/'+userid)
+          .map(res => res.json())
+          .subscribe(data => {
+            this.data = data;
+            resolve(this.data);
+          }, err => {
+            resolve(err);
+          });
+      });
+    }
 }
