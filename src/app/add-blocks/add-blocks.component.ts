@@ -17,10 +17,9 @@ export class AddBlocksComponent implements OnInit {
   adds:any = [];
   user:any = {};
   constructor(private blogAdmin: BlogAdminService) {
-     this.user = JSON.parse(localStorage.getItem('userData'));
-    this.GetadsBlock();
-    window.scrollTo(0, 0);
     
+     this.user = JSON.parse(localStorage.getItem('userData'));
+     this.GetadsBlock();
    }
 
   ngOnInit() {
