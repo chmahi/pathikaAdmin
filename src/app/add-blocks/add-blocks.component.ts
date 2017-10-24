@@ -13,10 +13,10 @@ export class AddBlocksComponent implements OnInit {
   // encapsulation: ViewEncapsulation.None
   message: String;
   loading = false;
-  add;
-  adds;
+  add:any = {};
+  adds:any = [];
+  user:any = {};;
   // userid;
-  user;
   constructor(private blogAdmin: BlogAdminService) {
     this.GetadsBlock();
      this.user = JSON.parse(localStorage.getItem('userData'));
@@ -33,7 +33,7 @@ export class AddBlocksComponent implements OnInit {
   // for add Ads 
   AddadsBlock(validVal: NgForm) {
     this.loading = true;
-      this.blogAdmin.adsBlock(this.user.user_id,this.add)
+      this.blogAdmin.adsBlock(this.user.userId,this.add)
         .then(
         data => {
           this.loading = false;
@@ -51,7 +51,7 @@ export class AddBlocksComponent implements OnInit {
   // get ads
   GetadsBlock() {
     this.loading = true;
-    this.blogAdmin.getadsBlock(this.user.user_id)
+    this.blogAdmin.getadsBlock(this.user.userId)
       .then(data => {
         this.loading = false;
         this.adds = data;
