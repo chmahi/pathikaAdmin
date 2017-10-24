@@ -10,6 +10,7 @@ export class TrashedPostsComponent implements OnInit {
   posts;
   loading = false;
   constructor(private blogAdmin: BlogAdminService) { 
+    window.scrollTo(0, 0);
     this.trashedPosts();
   }
 

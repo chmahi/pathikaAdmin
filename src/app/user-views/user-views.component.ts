@@ -29,6 +29,7 @@ export class UserViewsComponent implements OnInit {
 
 
   constructor(private blogAdmin: BlogAdminService) { 
+    window.scrollTo(0, 0);
     this.name = 'Angular2'
     this.cropperSettings1 = new CropperSettings();
     this.cropperSettings1.width = 200;

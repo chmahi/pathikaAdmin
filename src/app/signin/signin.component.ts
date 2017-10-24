@@ -18,6 +18,7 @@ export class SigninComponent implements OnInit {
   data;
   private userData: any = {};
   constructor(public router: Router, private blogAdmin: BlogAdminService) {
+    window.scrollTo(0, 0);
     this.userData = {"email": "", "password": ""};
    }
 

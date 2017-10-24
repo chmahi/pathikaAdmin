@@ -20,6 +20,7 @@ export class CategoryComponent implements OnInit {
   showLoading =false;
   constructor(private blogAdmin: BlogAdminService) {
     this.Getcategories();
+    window.scrollTo(0, 0);
   }
 
   ngOnInit() {

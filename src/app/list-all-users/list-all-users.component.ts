@@ -9,6 +9,7 @@ export class ListAllUsersComponent implements OnInit {
   users;
   loading = false;
   constructor(private blogAdmin: BlogAdminService) {
+    window.scrollTo(0, 0);
     this.GetAllUsers();
    }
 

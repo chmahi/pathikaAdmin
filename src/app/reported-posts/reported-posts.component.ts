@@ -9,6 +9,7 @@ export class ReportedPostsComponent implements OnInit {
   posts;
   loading = false;
   constructor(private blogAdmin: BlogAdminService) { 
+    window.scrollTo(0, 0);
     this.reportedPosts();
   }
 

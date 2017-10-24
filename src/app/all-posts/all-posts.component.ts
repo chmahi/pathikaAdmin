@@ -14,6 +14,7 @@ export class AllPostsComponent implements OnInit {
   constructor(private blogAdmin: BlogAdminService,private route: ActivatedRoute,public router: Router) {
     this.Getposts();
     this.curPage = route.params['_value']['id'];
+    window.scrollTo(0, 0);
    }
 
   ngOnInit() {
