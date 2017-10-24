@@ -15,11 +15,11 @@ export class AddBlocksComponent implements OnInit {
   loading = false;
   add:any = {};
   adds:any = [];
-  user:any = {};;
-  // userid;
+  user:any = {};
   constructor(private blogAdmin: BlogAdminService) {
-    this.GetadsBlock();
+    
      this.user = JSON.parse(localStorage.getItem('userData'));
+     this.GetadsBlock();
    }
 
   ngOnInit() {
