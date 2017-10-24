@@ -11,5 +11,4 @@ export class AddBlocksComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

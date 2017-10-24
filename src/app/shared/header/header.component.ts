@@ -9,9 +9,9 @@ declare var jQuery: any;
 })
 
 export class HeaderComponent implements OnInit {
-
+user;
   constructor(private route: ActivatedRoute,public router: Router) {
-
+   this.user = JSON.parse(localStorage.getItem('userData'));
         // Menu Toggle
     // jQuery('.toggle-btn').click(function() {
     //     jQuery(".left-side").getNiceScroll().hide();
