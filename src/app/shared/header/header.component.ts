@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
+import { BlogAdminService } from '../../providers/blog-admin.service';
 declare var jQuery: any;
 
 @Component({
@@ -9,9 +10,10 @@ declare var jQuery: any;
 })
 
 export class HeaderComponent implements OnInit {
-user;
-  constructor(private route: ActivatedRoute,public router: Router) {
-   this.user = JSON.parse(localStorage.getItem('userData'));
+  user:any=[];s
+  constructor(private route: ActivatedRoute,public router: Router,private blogAdmin: BlogAdminService) {
+    this.user = JSON.parse(localStorage.getItem('userData'));
+    console.log(this.user);
         // Menu Toggle
     // jQuery('.toggle-btn').click(function() {
     //     jQuery(".left-side").getNiceScroll().hide();
@@ -61,7 +63,12 @@ user;
 
          var body = jQuery('body');
         var bodyposition = body.css('position');
-   }
+   } 
+
+
+ 
+
+
 
         // Menu Toggle
     // jQuery('.toggle-btn').click(function() {
