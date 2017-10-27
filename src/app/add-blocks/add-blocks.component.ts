@@ -16,8 +16,14 @@ export class AddBlocksComponent implements OnInit {
   add:any = {};
   adds:any = [];
   user:any = {};
-  constructor(private blogAdmin: BlogAdminService) {
-    
+  selectedValue = null;
+  adPlacementsValue:any = [
+       {id: "S-TOP", name: "Sidebar TOP"},
+       {id: "S-BOT", name: "Sidebar Bottom"},
+       {id: "SPP", name: "Single Post page"},
+       {id: "HOME", name: "Home page"}      
+     ];;
+  constructor(private blogAdmin: BlogAdminService) {    
      this.user = JSON.parse(localStorage.getItem('userData'));
      this.GetadsBlock();
    }

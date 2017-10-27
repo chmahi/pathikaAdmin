@@ -22,7 +22,7 @@
                             <th scope="row">{{pagination(i,curPage)}}</th>
                             <td>{{post.title}}</td>
                             <td>{{post.user.firstname}}</td>
-                            <td>{{post.likes}}</td>
+                            <td><span *ngIf="post.likes">{{post.likes.length}}</span></td>
                         </tr>
                     </tbody>
                 </table>

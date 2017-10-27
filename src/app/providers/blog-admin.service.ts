@@ -190,6 +190,20 @@ export class BlogAdminService {
     });
   }
 
+  //for change password
+  public changePassword(userId, data) {
+    return new Promise(resolve => {
+      this.http.post('https://blogsterlnew.herokuapp.com/user/' + userId + '/change-password', data)
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        }, err => {
+          resolve(err);
+        });
+    });
+  }
+
     // for get ads  
     getadsBlock(userid) {
       return new Promise(resolve => {

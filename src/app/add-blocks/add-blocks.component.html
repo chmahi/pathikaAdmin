@@ -18,15 +18,15 @@
                     <div class="form-group">
                         <label for="mediuminput" class="col-sm-2 control-label">Placement</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control1" id="mediuminput" placeholder="About" name="adPlacement" [(ngModel)]="add.adPlacement"
-                                required>
+                            <select name="placements" class="form-control" [(ngModel)]="add.adPlacement">
+                                 <option *ngFor="let c of adPlacementsValue" [ngValue]="c.id">{{c.name}}</option>       
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="mediuminput" class="col-sm-2 control-label">Ad Content</label>
                         <div class="col-sm-8">
-                            <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adData" name="adData" placeholder="Upload file"
-                                required> </textarea>
+                            <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adData" name="adData" placeholder="Upload file" required> </textarea>
                         </div>
                     </div>
 
@@ -54,7 +54,7 @@
                             <th>Ad Name</th>
                             <th>Placement</th>
                             <th>Ad Text/Source</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
@@ -63,7 +63,7 @@
                             <td>{{ad.adname}}</td>
                             <td>{{ad.adPlacement}}</td>
                             <td>{{ad.adData}}</td>
-                           
+
                         </tr>
                     </tbody>
                 </table>
