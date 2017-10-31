@@ -92,13 +92,14 @@ EditUser(){
           firstname: this.updatedData[0].firstname, 
           lastname:this.updatedData[0].lastname, 
           email: this.updatedData[0].email,
-          userId: this.updatedData[0].id,
+          Id: this.updatedData[0].id,
           mobile: this.updatedData[0].mobile,
           state: this.updatedData[0].state,
           country: this.updatedData[0].country          
       };
       localStorage.setItem('userData', JSON.stringify(userInfo));
-      window.location.reload();
+      window.location.reload();      
+
    })
 }
 

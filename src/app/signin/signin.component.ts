@@ -19,6 +19,11 @@ export class SigninComponent implements OnInit {
   private userData: any = {};
   constructor(public router: Router, private blogAdmin: BlogAdminService) {
     window.scrollTo(0, 0);
+    var a = JSON.parse(localStorage.getItem('userData'));
+    if(a){
+      
+      this.router.navigate(['/main/ListAllUsersComponent']);
+    }
     this.userData = {"email": "", "password": ""};
    }
 
