@@ -11,6 +11,7 @@ import { BsModalComponent } from 'ng2-bs3-modal';
 })
 export class UserViewsComponent implements OnInit {
   users:any = {};
+  updatedData:any={};
   @ViewChild('modalNew')
   modal: BsModalComponent;
   message:any;
@@ -79,11 +80,26 @@ openMessage(textContent) {
 EditUser(){
   this.loading = true;
    var a = JSON.parse(localStorage.getItem('userData'));
+   
    this.blogAdmin.editProfile(a.userId,this.users)
    .then(data => {
      this.loading = false;
     this.openMessage("Update Successfull");
-    console.log(data);
+    // console.log(data);
+    console.log(JSON.stringify(data))
+    this.updatedData = data;
+      var userInfo = {              
+          firstname: this.updatedData.user.firstname, 
+          lastname:this.updatedData.user.lastname, 
+          email: this.updatedData.user.email,
+          userId: this.updatedData.user.id,
+          mobile: this.updatedData.user.mobile,
+          state: this.updatedData.user.state,
+          country: this.updatedData.user.country          
+      };
+      localStorage.setItem('userData', JSON.stringify(userInfo));
+      
+
    })
 }
 
