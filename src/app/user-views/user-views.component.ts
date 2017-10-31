@@ -99,8 +99,6 @@ EditUser(){
       };
       localStorage.setItem('userData', JSON.stringify(userInfo));
       window.location.reload();
-      
-
    })
 }
 
