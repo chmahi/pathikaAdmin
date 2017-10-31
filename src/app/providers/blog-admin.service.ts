@@ -176,10 +176,25 @@ export class BlogAdminService {
      });
    }
 
-     // for ads
-  public adsBlock(userid,data) {
+  // for ads
+  public adsBlock(data) {
     return new Promise(resolve => {
-      this.http.post('https://blogsterlnew.herokuapp.com/ads/'+userid, data)
+      this.http.post('https://blogsterlnew.herokuapp.com/addAd', data)
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        }, err => {
+          resolve(err);
+        });
+    });
+  }
+  
+  // for ads
+  public resetAds(data) {
+    console.log(JSON.stringify(data));
+    return new Promise(resolve => {
+      this.http.post('https://blogsterlnew.herokuapp.com/resetAd', data)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -205,9 +220,9 @@ export class BlogAdminService {
   }
 
     // for get ads  
-    getadsBlock(userid) {
+    getadsBlock() {
       return new Promise(resolve => {
-        this.http.get('https://blogsterlnew.herokuapp.com/ads/'+userid)
+        this.http.get('https://blogsterlnew.herokuapp.com/getAds/')
           .map(res => res.json())
           .subscribe(data => {
             this.data = data;

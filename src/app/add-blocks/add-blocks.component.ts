@@ -15,6 +15,7 @@ export class AddBlocksComponent implements OnInit {
   loading = false;
   add:any = {};
   adds:any = [];
+  noAds:any = [];
   user:any = {};
   selectedValue = null;
   adPlacementsValue:any = [
@@ -39,7 +40,7 @@ export class AddBlocksComponent implements OnInit {
   // for add Ads 
   AddadsBlock(validVal: NgForm) {
     this.loading = true;
-      this.blogAdmin.adsBlock(this.user.userId,this.add)
+      this.blogAdmin.adsBlock(this.add)
         .then(
         data => {
           this.loading = false;
@@ -54,13 +55,43 @@ export class AddBlocksComponent implements OnInit {
         });
      
   }
+
   // get ads
   GetadsBlock() {
     this.loading = true;
-    this.blogAdmin.getadsBlock(this.user.userId)
+    this.adds = [];
+    this.noAds = [];
+    this.blogAdmin.getadsBlock()
       .then(data => {
-        this.loading = false;
-        this.adds = data;
+        this.loading = false;    
+        var dataHold:any = data;     
+        dataHold.forEach(element => {
+          if(element.blockedStatus)
+          this.adds.push(element);
+          else
+            this.noAds.push(element);
+        });
       });
   }
+
+  // Reset Ads
+    resetadsBlock(adId) {
+    this.loading = true;
+    var val = {
+      adId:adId
+    };
+      this.blogAdmin.resetAds(val)
+        .then(
+        data => {
+          this.loading = false;          
+          this.GetadsBlock();
+        },
+        err => {
+          // Log errors if any
+          console.log(err);
+        });
+     
+  }
+
+  
 }
