@@ -57,6 +57,7 @@ export class SafeHtmlPipe implements PipeTransform  {
   }
 }
 
+
 @Pipe({ name: 'safeHtmlURL'})
 export class safeHtmlURL implements PipeTransform  {
   constructor(private sanitized: DomSanitizer) {}
@@ -65,7 +66,6 @@ export class safeHtmlURL implements PipeTransform  {
     return this.sanitized.bypassSecurityTrustHtml(value)["changingThisBreaksApplicationSecurity"];
   }
 }
-
 
 
 @NgModule({
