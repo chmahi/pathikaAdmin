@@ -1,16 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import {Http, RequestOptions, Headers} from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
 import { BsModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
-import {ImageCropperComponent} from 'ng2-img-cropper';
-import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import { ImageCropperComponent } from 'ng2-img-cropper';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 // import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 
-import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BlogAdminService } from './providers/blog-admin.service';
 import { SideBarComponent } from './shared/side-bar/side-bar.component';
@@ -29,37 +29,43 @@ import { CategoryComponent } from './category/category.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+// App Routes
 const appRoutes: Routes = [
   { path: '', component: SigninComponent },
-  { path: 'main', component: MainComponent, children: [
+  {
+    path: 'main', component: MainComponent, children: [
+      { path: 'Dashboard', component: DashboardComponent },
       { path: 'ListAllUsersComponent', component: ListAllUsersComponent },
       { path: 'UserViewsComponent', component: UserViewsComponent },
       { path: 'AddBlocksComponent', component: AddBlocksComponent },
       { path: 'AllPostsComponent/:id', component: AllPostsComponent },
-         { path: 'ReportedPostsComponent', component: ReportedPostsComponent },
+      { path: 'ReportedPostsComponent', component: ReportedPostsComponent },
       { path: 'TrashedPostsComponent', component: TrashedPostsComponent },
       { path: 'CategoryComponent', component: CategoryComponent },
       { path: 'Settings', component: SettingsComponent },
       { path: 'change-password', component: ChangePasswordComponent }
-  ]},
+    ]
+  },
 
   // { path: 'category', component: CategoryComponent },
   // { path: 'contact', component: ContactComponent },
 ];
 
 
-@Pipe({ name: 'safeHtml'})
-export class SafeHtmlPipe implements PipeTransform  {
-  constructor(private sanitized: DomSanitizer) {}
+@Pipe({ name: 'safeHtml' })
+export class SafeHtmlPipe implements PipeTransform {
+  constructor(private sanitized: DomSanitizer) { }
   transform(value) {
     console.log(this.sanitized.bypassSecurityTrustHtml(value)["changingThisBreaksApplicationSecurity"]);
-    return "url("+this.sanitized.bypassSecurityTrustHtml(value)["changingThisBreaksApplicationSecurity"]+")";
+    return "url(" + this.sanitized.bypassSecurityTrustHtml(value)["changingThisBreaksApplicationSecurity"] + ")";
   }
 }
 
-@Pipe({ name: 'safeHtmlURL'})
-export class safeHtmlURL implements PipeTransform  {
-  constructor(private sanitized: DomSanitizer) {}
+@Pipe({ name: 'safeHtmlURL' })
+export class safeHtmlURL implements PipeTransform {
+  constructor(private sanitized: DomSanitizer) { }
   transform(value) {
     console.log(this.sanitized.bypassSecurityTrustHtml(value)["changingThisBreaksApplicationSecurity"]);
     return this.sanitized.bypassSecurityTrustHtml(value)["changingThisBreaksApplicationSecurity"];
@@ -90,7 +96,8 @@ export class safeHtmlURL implements PipeTransform  {
     ImageCropperComponent,
     SettingsComponent,
     ChangePasswordComponent,
-    // Ng2Bs3ModalModule,
+    DashboardComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -98,7 +105,6 @@ export class safeHtmlURL implements PipeTransform  {
     NgxPaginationModule,
     FormsModule,
     BsModalModule,
-    // Ng2Bs3ModalModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

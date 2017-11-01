@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit {
-add:any = {};
+  add: any = {};
   constructor() {
-window.scrollTo(0, 0);    
-   }
+    window.scrollTo(0, 0);
+  }
 
   ngOnInit() {
   }

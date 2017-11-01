@@ -1,7 +1,13 @@
+<!-- No posts found -->
 <div *ngIf="posts.length == 0">
     No Posts Found
 </div>
+
+<!-- for loader start -->
 <div class="loaderBox" *ngIf="loading"></div>
+<!-- for loader end -->
+
+<!-- To list All User Posts Start -->
 <div id="page-wrapper">
     <div class="graphs">
         <h3 class="blank1">List All Posts</h3>
@@ -35,3 +41,5 @@
         </div>
     </div>
 </div>
+
+<!-- To list All User Posts End -->

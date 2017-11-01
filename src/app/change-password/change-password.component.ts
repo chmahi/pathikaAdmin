@@ -1,6 +1,12 @@
+
+// External imports
 import { Component, OnInit } from '@angular/core';
-import { BlogAdminService } from '../providers/blog-admin.service';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+// Internal imports
+import { BlogAdminService } from '../providers/blog-admin.service';
+
+// Component Builder
 @Component({
   selector: 'app-change-password',
   templateUrl: './change-password.component.html',
@@ -15,6 +21,7 @@ export class ChangePasswordComponent implements OnInit {
   ngOnInit() {
   }
 
+  // To change password
   changePassword(validVal: NgForm) {
     if (validVal.valid) {
       let userData: any = JSON.parse(localStorage.getItem('userData'));
