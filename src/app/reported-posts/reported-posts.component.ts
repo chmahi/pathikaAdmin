@@ -1,5 +1,11 @@
+
+// External Imports
 import { Component, OnInit } from '@angular/core';
+
+// Internal imports
 import { BlogAdminService } from '../providers/blog-admin.service';
+
+// Component builder
 @Component({
   selector: 'app-reported-posts',
   templateUrl: './reported-posts.component.html',
@@ -15,7 +21,8 @@ export class ReportedPostsComponent implements OnInit {
 
   ngOnInit() {
   }
- // for delete posts
+
+ // For delete posts
  reportedPosts(){
   this.loading = true;
   this.blogAdmin.reportedPosts()

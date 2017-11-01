@@ -1,6 +1,8 @@
 <div class="loaderBox" *ngIf="loading">
 </div>
 <div id="page-wrapper">
+
+    <!-- form start -->
     <form class="form-horizontal" (ngSubmit)="AddadsBlock(f,add)" #f="ngForm" novalidate>
         <div class="form-group">
             <label for="mediuminput" class="col-sm-2 control-label">Contact Email</label>
@@ -11,25 +13,29 @@
         <div class="form-group row">
             <label for="mediuminput" class="col-sm-2 control-label">Address 1</label>
             <div class="col-sm-8">
-                <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adData" name="adData" placeholder="Upload file" required> </textarea>
+                <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adData" name="adData" placeholder="Upload file"
+                    required> </textarea>
             </div>
         </div>
         <div class="form-group row">
             <label for="mediuminput" class="col-sm-2 control-label">Address 2</label>
             <div class="col-sm-8">
-                <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adData" name="adData" placeholder="Upload file" required> </textarea>
+                <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adData" name="adData" placeholder="Upload file"
+                    required> </textarea>
             </div>
         </div>
         <div class="form-group row">
             <label for="mediuminput" class="col-sm-2 control-label">Website Title</label>
             <div class="col-sm-8">
-                <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adData" name="adData" placeholder="Upload file" required> </textarea>
+                <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adData" name="adData" placeholder="Upload file"
+                    required> </textarea>
             </div>
         </div>
         <div class="form-group row">
             <label for="mediuminput" class="col-sm-2 control-label">Website Title CSS</label>
             <div class="col-sm-8">
-                <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adData" name="adData" placeholder="Upload file" required> </textarea>
+                <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adData" name="adData" placeholder="Upload file"
+                    required> </textarea>
             </div>
         </div>
         <div class="form-group">
@@ -83,4 +89,6 @@
             </div>
         </div>
     </form>
+    <!-- form end -->
+
 </div>

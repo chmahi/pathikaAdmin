@@ -1,13 +1,20 @@
+
+// Externel iports
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BlogAdminService } from '../providers/blog-admin.service';
 import { BsModalComponent } from 'ng2-bs3-modal';
+
+// Internal Imports
+import { BlogAdminService } from '../providers/blog-admin.service';
+
+// Cmponent Builder
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
+
 export class CategoryComponent implements OnInit {
   @ViewChild('myFirstModal')
   modal: BsModalComponent;
@@ -17,40 +24,47 @@ export class CategoryComponent implements OnInit {
   categories: any = {};
   Categories;
   loading = false;
-  showLoading =false;
+  showLoading = false;
   constructor(private blogAdmin: BlogAdminService) {
+
+    // Initial Loading
     this.Getcategories();
+
     window.scrollTo(0, 0);
   }
 
   ngOnInit() {
   }
-  // for form Reset
+  // For form Reset
   restForm(validVal: NgForm) {
     validVal.resetForm();
   }
+
+  // Modal poppup
   open(textContent: any) {
     this.message = textContent;
     this.modal.open('sm');
   }
+
+  // To File Upload
   myfile: any;
   fileChange(fileInput: any) {
     this.showLoading = true;
     this.myfile = fileInput.target.files[0];
-    //let fileList: FileList = event.target.files;
+    // let fileList: FileList = event.target.files;
     this.blogAdmin.fileUpload(this.myfile)
       .then(data => {
-        //console.log(data);
+        // console.log(data);
         this.category.imageLink = '';
         this.category.imageLink = (data['files'][0].url);
         this.showLoading = false;
-      }, //Bind to view
+      }, // Bind to view
       err => {
         // Log errors if any
         console.log(err);
       });
   }
-  // for add category 
+  // For add category 
   addCategory(validVal: NgForm) {
     this.loading = true;
     if (validVal.valid && this.category.imageLink != "") {
@@ -74,7 +88,7 @@ export class CategoryComponent implements OnInit {
       this.open("Please fill all fields!!");
     }
   }
-  // get categories
+  // To get categories
   Getcategories() {
     this.loading = true;
     this.blogAdmin.getCategory()
@@ -90,7 +104,7 @@ export class CategoryComponent implements OnInit {
     this.blogAdmin.deleteCategory(cate.id)
       .then(data => {
         this.Getcategories();
-      }, //Bind to view
+      }, // Bind to view
       err => {
         // Log errors if any
         console.log(err);

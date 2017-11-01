@@ -12,10 +12,13 @@
                     <p><a routerLink="/main/ListAllUsersComponent">Click Here</a> </p>
                     <div class="clearfix"> </div>
                 </div>
+
+                <!-- Form start -->
                 <form (ngSubmit)="login(f)" #f="ngForm" novalidate>
                     <div class="log-input">
                         <div class="log-input-left">
-                            <input type="text" class="user" value="Yourname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}" name="email" [(ngModel)]="userData.email" required />
+                            <input type="text" class="user" value="Yourname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}"
+                                name="email" [(ngModel)]="userData.email" required />
                         </div>
                         <span class="checkbox2">
                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
@@ -24,7 +27,8 @@
                     </div>
                     <div class="log-input">
                         <div class="log-input-left">
-                            <input type="password" class="lock" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password:';}" name="password" [(ngModel)]="userData.password" required />
+                            <input type="password" class="lock" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password:';}"
+                                name="password" [(ngModel)]="userData.password" required />
                         </div>
                         <span class="checkbox2">
                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
@@ -33,11 +37,15 @@
                     </div>
                     <input type="submit" value="Login to your account">
                 </form>
+                <!-- form end -->
+
             </div>
         </div>
     </div>
 </div>
 
+
+<!-- Modal popup start -->
 <bs-modal #myFirstModal>
 
     <bs-modal-body>
@@ -45,6 +53,8 @@
     </bs-modal-body>
 
 </bs-modal>
+<!-- Modal popup end -->
+
 <!-- 
 <modal #myFirstModal>
     <modal-body>

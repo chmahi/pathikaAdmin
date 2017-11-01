@@ -2,6 +2,8 @@
 <div id="page-wrapper">
     <div class="graphs">
         <h3 class="blank1">Add Category</h3>
+
+        <!-- Add categories start -->
         <div class="tab-content">
             <div class="tab-pane active loadingOuter" id="horizontal-form">
                 <div class="loadingBar" *ngIf="showLoading">
@@ -23,7 +25,8 @@
                     <div class="form-group row">
                         <label for="mediuminput" class="col-sm-2 control-label">Image</label>
                         <div class="col-sm-8">
-                            <input type="file" id="file-input" class="form-control" (change)="fileChange($event)" name="imageLink" placeholder="Upload file" required>
+                            <input type="file" id="file-input" class="form-control" (change)="fileChange($event)" name="imageLink" placeholder="Upload file"
+                                required>
                         </div>
                         <div class="col-md-2"><img width="100" src="{{category.imageLink}}" /></div>
                     </div>
@@ -37,7 +40,9 @@
                 </form>
             </div>
         </div>
-        <!-- <div class="panel-footer"> -->
+        <!-- List all categories end -->
+
+        <!-- List all categories start -->
         <h3 class="blank1">List All Categories</h3>
         <div class="xs tabls">
             <div class="bs-example4" data-example-id="contextual-table">
@@ -70,6 +75,7 @@
                 </table>
             </div>
         </div>
+        <!-- List all categories end -->
         <!-- </div> -->
 
 

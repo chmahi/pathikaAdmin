@@ -4,6 +4,8 @@
     <div class="graphs">
         <h3 class="blank1">My Profile</h3>
         <div class="xs tabls">
+
+            <!-- Form start -->
             <form class="form-horizontal" (ngSubmit)="f.valid && EditUser()" #f="ngForm" novalidate>
                 <div class="row">
                     <div class="col-md-9">
@@ -82,10 +84,14 @@
                 </div>
 
             </form>
+            <!-- Form end -->
+
         </div>
     </div>
 </div>
 
+
+ <!-- For cropImage Start -->
 <bs-modal #croppImage>
     <bs-modal-header>
         <h4 class="modal-title">Upload Profile Pic</h4>
@@ -102,9 +108,13 @@
         </div>
     </bs-modal-body>
 </bs-modal>
+<!-- For cropImage End -->
 
+
+<!-- Modal popup start -->
 <bs-modal #modalNew>
     <bs-modal-body>
         {{message}}
     </bs-modal-body>
 </bs-modal>
+<!-- Modal popup End -->

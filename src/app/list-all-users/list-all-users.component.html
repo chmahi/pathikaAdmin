@@ -4,6 +4,7 @@
         <div class="xs tabls">
             <div class="bs-example4" data-example-id="contextual-table">
 
+                <!-- Table starts -->
                 <table class="table">
                     <thead>
                         <tr>
@@ -30,9 +31,13 @@
                         </tr>
                     </tbody>
                 </table>
+                <!-- table end -->
+
+                <!-- No posts -->
                 <div *ngIf="users.length == 0">
                     No Posts Found
                 </div>
+                
             </div>
         </div>
     </div>

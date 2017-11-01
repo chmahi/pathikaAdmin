@@ -1,5 +1,7 @@
 <div class="loaderBox" *ngIf="loading"></div>
 <div id="page-wrapper">
+
+    <!-- ads block start -->
     <div class="graphs">
 
         <h3 class="blank1">Add Advertisement</h3>
@@ -21,7 +23,8 @@
                     <div class="form-group row">
                         <label for="mediuminput" class="col-sm-2 control-label">Ad Content</label>
                         <div class="col-sm-8">
-                            <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adContent" name="adData" placeholder="Upload file" required> </textarea>
+                            <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adContent" name="adData" placeholder="Upload file"
+                                required> </textarea>
                         </div>
                     </div>
                     <div class="row submitCategory">
@@ -63,7 +66,11 @@
             </div>
         </div>
     </div>
+    <!-- ads block end -->
+
 </div>
+
+<!-- modal popup start -->
 <bs-modal #myFirstModal>
 
     <bs-modal-body>
@@ -71,3 +78,4 @@
     </bs-modal-body>
 
 </bs-modal>
+<!-- modal popup end -->

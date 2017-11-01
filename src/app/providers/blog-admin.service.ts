@@ -14,7 +14,7 @@ export class BlogAdminService {
     this.options = new RequestOptions({ headers: headers });
   }
 
-  //get all users
+  // Get all users
   getAllusers() {
     return new Promise(resolve => {
       this.http.get('https://blogsterlnew.herokuapp.com/users')
@@ -27,7 +27,8 @@ export class BlogAdminService {
         });
     });
   }
-  // for get all posts
+
+  // For get all posts
   getallposts() {
     return new Promise(resolve => {
       this.http.get('https://blogsterlnew.herokuapp.com/posts')
@@ -40,7 +41,7 @@ export class BlogAdminService {
         });
     });
   }
-  // for login
+  // For login
   public login(data) {
     return new Promise(resolve => {
       this.http.post('https://blogsterlnew.herokuapp.com/login', data)
@@ -54,7 +55,7 @@ export class BlogAdminService {
         });
     });
   }
-  // for add category
+  // For add category
   public AddCategory(data) {
     return new Promise(resolve => {
       this.http.post('https://blogsterlnew.herokuapp.com/category', data)
@@ -68,7 +69,7 @@ export class BlogAdminService {
     });
   }
 
-  // for get category
+  // For get category
   getCategory() {
     return new Promise(resolve => {
       this.http.get('https://blogsterlnew.herokuapp.com/category')
@@ -81,7 +82,7 @@ export class BlogAdminService {
         });
     });
   }
-  // for trashed Posts 
+  // For trashed Posts 
   trashedPosts() {
     return new Promise(resolve => {
       this.http.get('https://blogsterlnew.herokuapp.com/trashedPosts')
@@ -94,7 +95,7 @@ export class BlogAdminService {
         });
     });
   }
-  // for reported Posts 
+  // For reported Posts 
   reportedPosts() {
     return new Promise(resolve => {
       this.http.get('https://blogsterlnew.herokuapp.com/reportedPosts')
@@ -125,6 +126,8 @@ export class BlogAdminService {
         })
     });
   }
+
+  // Delete category by Id
    deleteCategory(id) {
     return new Promise(resolve => {
       this.http.delete('https://blogsterlnew.herokuapp.com/category/' + id)
@@ -136,6 +139,8 @@ export class BlogAdminService {
     });
   }
 
+
+  // User details by id
   getUserDetails(id) {
     return new Promise(resolve => {
       this.http.get('https://blogsterlnew.herokuapp.com/listUser/' + id)
@@ -147,6 +152,8 @@ export class BlogAdminService {
     });
   }
 
+
+  // Edit profile by idvalue
   public editProfile(idval,data) {
       return new Promise(resolve => {
         this.http.post('https://blogsterlnew.herokuapp.com/profileEdit/'+idval, data)
@@ -160,6 +167,8 @@ export class BlogAdminService {
       });
     }
 
+
+    // To upload a File
     public fileUploadBase64(fileVal){
       var data:any = {
        imgbase64:fileVal
@@ -176,7 +185,7 @@ export class BlogAdminService {
      });
    }
 
-  // for ads
+  // For ads
   public adsBlock(data) {
     return new Promise(resolve => {
       this.http.post('https://blogsterlnew.herokuapp.com/addAd', data)
@@ -190,7 +199,7 @@ export class BlogAdminService {
     });
   }
   
-  // for ads
+  // to Reset ads
   public resetAds(data) {
     console.log(JSON.stringify(data));
     return new Promise(resolve => {
@@ -205,7 +214,7 @@ export class BlogAdminService {
     });
   }
 
-  //for change password
+  // For change password
   public changePassword(userId, data) {
     return new Promise(resolve => {
       this.http.post('https://blogsterlnew.herokuapp.com/user/' + userId + '/change-password', data)
@@ -219,7 +228,7 @@ export class BlogAdminService {
     });
   }
 
-    // for get ads  
+    // For get ads  
     getadsBlock() {
       return new Promise(resolve => {
         this.http.get('https://blogsterlnew.herokuapp.com/getAds/')
