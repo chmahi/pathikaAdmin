@@ -10,7 +10,7 @@ declare var jQuery: any;
 })
 
 export class HeaderComponent implements OnInit {
-  user:any=[];s
+  user:any=[];
   constructor(private route: ActivatedRoute,public router: Router,private blogAdmin: BlogAdminService) {
     this.user = JSON.parse(localStorage.getItem('userData'));
     console.log(this.user);
@@ -51,6 +51,12 @@ export class HeaderComponent implements OnInit {
 
     // });
 
+   }
+
+
+   getUsername(){
+      this.user = JSON.parse(localStorage.getItem('userData'));
+      return this.user.firstname;
    }
 
    toggleMenu() {

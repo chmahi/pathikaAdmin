@@ -98,7 +98,7 @@ EditUser(){
           country: this.updatedData[0].country          
       };
       localStorage.setItem('userData', JSON.stringify(userInfo));
-      window.location.reload();      
+      // window.location.reload();      
 
    })
 }
