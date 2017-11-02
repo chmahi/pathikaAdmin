@@ -73,7 +73,6 @@ export class safeHtmlURL implements PipeTransform {
 }
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
