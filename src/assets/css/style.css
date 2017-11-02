@@ -1501,6 +1501,10 @@ i.fa.fa-tasks {
     line-height: 25px;
 }
 
+.user-panel-top li a .profile_img i {
+    position: absolute;
+}
+
 .user-panel-top li a i span {
     font-size: 15px;
     color: #FFF;
@@ -2105,7 +2109,6 @@ ul.dropdown-menu.drp-mnu li a i {
     color: #F44336;
     line-height: 1em;
     font-weight: 700;
-    text-align: right;
 }
 
 .user-name p span {
