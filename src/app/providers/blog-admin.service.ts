@@ -241,4 +241,46 @@ export class BlogAdminService {
           });
       });
     }
+
+    // Get Settings Data
+    getSettings(){
+         return new Promise(resolve => {
+        this.http.get('https://blogsterlnew.herokuapp.com/setting/get')
+          .map(res => res.json())
+          .subscribe(data => {
+            this.data = data;
+            resolve(this.data);
+          }, err => {
+            resolve(err);
+          });
+      });
+    }
+
+    // Default first setting empty var
+    setSettings(setData){
+         return new Promise(resolve => {
+        this.http.post('https://blogsterlnew.herokuapp.com/setting/set', setData)
+          .map(res => res.json())
+          .subscribe(data => {
+            this.data = data;
+            resolve(this.data);
+          }, err => {
+            resolve(err);
+          });
+      });
+    }
+
+     // Update setting empty var
+    updateSettings(setData){
+         return new Promise(resolve => {
+        this.http.post('https://blogsterlnew.herokuapp.com/setting/update', setData)
+          .map(res => res.json())
+          .subscribe(data => {
+            this.data = data;
+            resolve(this.data);
+          }, err => {
+            resolve(err);
+          });
+      });
+    }
 }

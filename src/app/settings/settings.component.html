@@ -3,72 +3,72 @@
 <div id="page-wrapper">
 
     <!-- form start -->
-    <form class="form-horizontal" (ngSubmit)="AddadsBlock(f,add)" #f="ngForm" novalidate>
+    <form class="form-horizontal" (ngSubmit)="settingDataFub(f,settingData)" #f="ngForm" novalidate>
 
         <div class="form-group row">
             <label for="mediuminput" class="col-sm-2 control-label">Address 1</label>
             <div class="col-sm-8">
-                <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adData" name="adData" placeholder="Upload file" required> </textarea>
+                <textarea rows="10" cols="20" class="form-control" [(ngModel)]="settingData.Address1" name="addb" placeholder="Add first Address" required> </textarea>
             </div>
         </div>
         <div class="form-group row">
             <label for="mediuminput" class="col-sm-2 control-label">Address 2</label>
             <div class="col-sm-8">
-                <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adData" name="adData" placeholder="Upload file" required> </textarea>
+                <textarea rows="10" cols="20" class="form-control" [(ngModel)]="settingData.Address2" name="adda" placeholder="Add Second Address" required> </textarea>
             </div>
         </div>
         <div class="form-group row">
             <label for="mediuminput" class="col-sm-2 control-label">Website Title</label>
             <div class="col-sm-8">
-                <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adData" name="adData" placeholder="Upload file" required> </textarea>
+                <textarea rows="10" cols="20" class="form-control" [(ngModel)]="settingData.websiteTitle" name="webtitle" placeholder="Add Website Title in HTML/text" required> </textarea>
             </div>
         </div>
         <div class="form-group row">
             <label for="mediuminput" class="col-sm-2 control-label">Website Title CSS</label>
             <div class="col-sm-8">
-                <textarea id="file-input" rows="10" cols="20" class="form-control" [(ngModel)]="add.adData" name="adData" placeholder="Upload file" required> </textarea>
+                <textarea rows="10" cols="20" class="form-control" [(ngModel)]="settingData.titleCss" name="titleCss" placeholder="Ad Webiste title CSS code here" required> </textarea>
             </div>
         </div>
         <div class="form-group">
             <label for="mediuminput" class="col-sm-2 control-label">Contact Email</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control1" id="mediuminput" placeholder="Ad name" [(ngModel)]="add.adname" name="name" required>
+                <input type="text" class="form-control1" placeholder="Ad name" [(ngModel)]="settingData.contactMail" name="email" required>
             </div>
         </div>
         <div class="form-group">
             <label for="mediuminput" class="col-sm-2 control-label">FB APP ID</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control1" id="mediuminput" placeholder="Ad name" [(ngModel)]="add.adname" name="name" required>
+                <input type="text" class="form-control1" placeholder="Ad name" [(ngModel)]="settingData.FBAppId" name="fbid" required>
             </div>
         </div>
         <div class="form-group">
             <label for="mediuminput" class="col-sm-2 control-label">FB Page URL</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control1" id="mediuminput" placeholder="Ad name" [(ngModel)]="add.adname" name="name" required>
+                <input type="text" class="form-control1" placeholder="Ad name" [(ngModel)]="settingData.facebook" name="fb" required>
             </div>
         </div>
         <div class="form-group">
             <label for="mediuminput" class="col-sm-2 control-label">Youtube Page URL</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control1" id="mediuminput" placeholder="Ad name" [(ngModel)]="add.adname" name="name" required>
+                <input type="text" class="form-control1" placeholder="Ad name" [(ngModel)]="settingData.youtube" name="youtube" required>
             </div>
         </div>
         <div class="form-group">
             <label for="mediuminput" class="col-sm-2 control-label">Twitter Page URL</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control1" id="mediuminput" placeholder="Ad name" [(ngModel)]="add.adname" name="name" required>
+                <input type="text" class="form-control1" placeholder="Ad name" [(ngModel)]="settingData.twitter" name="twitter" required>
             </div>
         </div>
         <div class="form-group">
             <label for="mediuminput" class="col-sm-2 control-label">Instagram Page URL</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control1" id="mediuminput" placeholder="Ad name" [(ngModel)]="add.adname" name="name" required>
+                <input type="text" class="form-control1" placeholder="Ad name" [(ngModel)]="settingData.instagram" name="instagram" required>
             </div>
         </div>
         <div class="form-group">
             <label for="mediuminput" class="col-sm-2 control-label">API URL</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control1" id="mediuminput" placeholder="Ad name" [(ngModel)]="add.adname" name="name" required>
+                <input type="text" class="form-control1" placeholder="Ad name" [(ngModel)]="settingData.API" name="api" required>
             </div>
         </div>
 
