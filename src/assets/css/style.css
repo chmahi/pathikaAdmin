@@ -1048,8 +1048,10 @@ h5.left-nav-title {
     display: none;
 }
 
-.left-side-collapsed .custom-nav .menu-list.nav-hover ul {
+.left-side-collapsed .custom-nav .menu-list:hover ul,
+.left-side-collapsed .custom-nav .menu-list:hover span {
     display: block;
+    color: #fff;
 }
 
 .left-side-collapsed .custom-nav>li.nav-hover>a,
