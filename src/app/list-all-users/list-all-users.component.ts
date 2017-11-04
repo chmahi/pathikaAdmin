@@ -34,4 +34,22 @@ export class ListAllUsersComponent implements OnInit {
       this.users = data;
     });
 }
+
+ suspendUser(idVal) {
+  this.loading = true;
+  this.blogAdmin.suspendUser(idVal)
+    .then(data => { 
+      this.loading = false;     
+       this.GetAllUsers();
+    });
+}
+
+ activateUser(idVal) {
+  this.loading = true;
+  this.blogAdmin.activateUser(idVal)
+    .then(data => { 
+      this.loading = false;     
+       this.GetAllUsers();
+    });
+}
 }

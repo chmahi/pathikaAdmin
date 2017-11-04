@@ -283,4 +283,32 @@ export class BlogAdminService {
           });
       });
     }
+
+    // To suspend the User
+    suspendUser(id){
+         return new Promise(resolve => {
+        this.http.get('https://blogsterlnew.herokuapp.com/suspend/'+id)
+          .map(res => res.json())
+          .subscribe(data => {
+            this.data = data;
+            resolve(this.data);
+          }, err => {
+            resolve(err);
+          });
+      });
+    }
+
+    // To Activate the Suspended User
+    activateUser(id){
+         return new Promise(resolve => {
+        this.http.get('https://blogsterlnew.herokuapp.com/activate/'+id)
+          .map(res => res.json())
+          .subscribe(data => {
+            this.data = data;
+            resolve(this.data);
+          }, err => {
+            resolve(err);
+          });
+      });
+    }
 }

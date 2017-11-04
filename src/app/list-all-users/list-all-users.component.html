@@ -24,9 +24,10 @@
                             <td>{{user.count}}</td>
                             <td>{{user.status}}</td>
                             <td>
-                                <button type="button" class="btn btn_5 btn-lg btn-primary">Suspend</button>
+                                <button type="button" (click)="suspendUser(user.id)" class="btn btn_5 btn-lg btn-primary" *ngIf="user.status == 'ACTIVE'">Suspend</button>
+                                <button type="button" (click)="activateUser(user.id)" class="btn btn_5 btn-lg btn-warning" *ngIf="user.status == 'SUSPEND'">Activate</button>
                                 <!-- <button type="button" class="btn btn_5 btn-lg btn-primary">View</button> -->
-                                <button type="button" class="btn btn_5 btn-lg btn-primary">Notify</button>
+                                <!-- <button type="button" class="btn btn_5 btn-lg btn-primary">Notify</button> -->
                             </td>
                         </tr>
                     </tbody>
@@ -37,7 +38,7 @@
                 <div *ngIf="users.length == 0">
                     No Posts Found
                 </div>
-                
+
             </div>
         </div>
     </div>
