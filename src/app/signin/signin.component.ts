@@ -50,7 +50,8 @@ export class SigninComponent implements OnInit {
                 userId: this.data.user.id,
                 mobile: this.data.user.mobile,
                 state: this.data.user.state,
-                country: this.data.user.country          
+                country: this.data.user.country,
+                imageURL:this.data.user.imageURL          
             };
             localStorage.setItem('userData', JSON.stringify(userInfo));
             validVal.resetForm();

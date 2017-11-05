@@ -16,6 +16,7 @@ import { BlogAdminService } from '../../providers/blog-admin.service';
 
 export class HeaderComponent implements OnInit {
   user: any = [];
+  private userData: any = {};
   constructor(private route: ActivatedRoute, public router: Router, private blogAdmin: BlogAdminService) {
 
     // To get data from localstorage
@@ -66,7 +67,10 @@ export class HeaderComponent implements OnInit {
     return this.user.firstname;
   }
 
-
+  getimage() {
+     this.user = JSON.parse(localStorage.getItem('userData'));
+    return this.user.imageURL;
+  }
   // Toggle menu
   toggleMenu() {
 
