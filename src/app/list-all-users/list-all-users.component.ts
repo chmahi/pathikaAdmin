@@ -25,7 +25,7 @@ export class ListAllUsersComponent implements OnInit {
   ngOnInit() {
   }
   
- // For get All Users
+ // To get All Users
  GetAllUsers() {
   this.loading = true;
   this.blogAdmin.getAllusers()
@@ -35,6 +35,7 @@ export class ListAllUsersComponent implements OnInit {
     });
 }
 
+// To Suspend User
  suspendUser(idVal) {
   this.loading = true;
   this.blogAdmin.suspendUser(idVal)
@@ -44,6 +45,8 @@ export class ListAllUsersComponent implements OnInit {
     });
 }
 
+
+// To activate user
  activateUser(idVal) {
   this.loading = true;
   this.blogAdmin.activateUser(idVal)

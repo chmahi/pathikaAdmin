@@ -16,6 +16,8 @@ export class ReportedPostsComponent implements OnInit {
   loading = false;
   constructor(private blogAdmin: BlogAdminService) { 
     window.scrollTo(0, 0);
+    
+    // Initial loading
     this.reportedPosts();
   }
 

@@ -1,6 +1,11 @@
+
+// External imports
 import { Component, OnInit } from '@angular/core';
+
+// Internal imports
 import { BlogAdminService } from '../providers/blog-admin.service';
 
+// Component Builder
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -12,13 +17,15 @@ export class SettingsComponent implements OnInit {
   loading = false;
   constructor(private blogAdmin: BlogAdminService) {
     window.scrollTo(0, 0);
+
+    // Initial Loading
     this.getSettings();
   }
 
   ngOnInit() {
   }
 
-
+// To update Settings
   settingDataFub() {
     this.loading = true;
     this.blogAdmin.updateSettings(this.settingData)
@@ -30,6 +37,7 @@ export class SettingsComponent implements OnInit {
       })
   }
 
+  // To get Settings
   getSettings() {
     this.loading = true;
     this.blogAdmin.getSettings()
@@ -45,6 +53,7 @@ export class SettingsComponent implements OnInit {
       })
   }
 
+  // To set Settings
   firstRun() {
     var firstBasic = {
       websiteTitle: "",
