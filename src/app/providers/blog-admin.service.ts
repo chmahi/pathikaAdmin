@@ -128,7 +128,7 @@ export class BlogAdminService {
   }
 
   // Delete category by Id
-   deleteCategory(id) {
+  deleteCategory(id) {
     return new Promise(resolve => {
       this.http.delete('https://blogsterlnew.herokuapp.com/category/' + id)
         .map(res => res.json())
@@ -152,38 +152,49 @@ export class BlogAdminService {
     });
   }
 
+  getAllemail() {
+    return new Promise(resolve => {
+      this.http.get('https://blogsterlnew.herokuapp.com/mail/getall/')
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        });
+    });
+  }
+
 
   // Edit profile by idvalue
-  public editProfile(idval,data) {
-      return new Promise(resolve => {
-        this.http.post('https://blogsterlnew.herokuapp.com/profileEdit/'+idval, data)
-          .map(res => res.json())
-          .subscribe(data => {
-            this.data = data;
-            resolve(this.data);
-          }, err =>{
+  public editProfile(idval, data) {
+    return new Promise(resolve => {
+      this.http.post('https://blogsterlnew.herokuapp.com/profileEdit/' + idval, data)
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        }, err => {
           resolve(err);
         });
-      });
+    });
+  }
+
+
+  // To upload a File
+  public fileUploadBase64(fileVal) {
+    var data: any = {
+      imgbase64: fileVal
     }
 
-
-    // To upload a File
-    public fileUploadBase64(fileVal){
-      var data:any = {
-       imgbase64:fileVal
-     }
- 
-     return new Promise(resolve => {
-       this.http.post('https://blogsterlnew.herokuapp.com/file/upload64/', data)    
-         .map(res => res.json())
-         .subscribe(data => {
-           // console.log(data)
-           this.data = data;
-           resolve(this.data);
-         })
-     });
-   }
+    return new Promise(resolve => {
+      this.http.post('https://blogsterlnew.herokuapp.com/file/upload64/', data)
+        .map(res => res.json())
+        .subscribe(data => {
+          // console.log(data)
+          this.data = data;
+          resolve(this.data);
+        })
+    });
+  }
 
   // For ads
   public adsBlock(data) {
@@ -198,7 +209,7 @@ export class BlogAdminService {
         });
     });
   }
-  
+
   // to Reset ads
   public resetAds(data) {
     console.log(JSON.stringify(data));
@@ -228,87 +239,87 @@ export class BlogAdminService {
     });
   }
 
-    // For get ads  
-    getadsBlock() {
-      return new Promise(resolve => {
-        this.http.get('https://blogsterlnew.herokuapp.com/getAds/')
-          .map(res => res.json())
-          .subscribe(data => {
-            this.data = data;
-            resolve(this.data);
-          }, err => {
-            resolve(err);
-          });
-      });
-    }
+  // For get ads  
+  getadsBlock() {
+    return new Promise(resolve => {
+      this.http.get('https://blogsterlnew.herokuapp.com/getAds/')
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        }, err => {
+          resolve(err);
+        });
+    });
+  }
 
-    // Get Settings Data
-    getSettings(){
-         return new Promise(resolve => {
-        this.http.get('https://blogsterlnew.herokuapp.com/setting/get')
-          .map(res => res.json())
-          .subscribe(data => {
-            this.data = data;
-            resolve(this.data);
-          }, err => {
-            resolve(err);
-          });
-      });
-    }
+  // Get Settings Data
+  getSettings() {
+    return new Promise(resolve => {
+      this.http.get('https://blogsterlnew.herokuapp.com/setting/get')
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        }, err => {
+          resolve(err);
+        });
+    });
+  }
 
-    // Default first setting empty var
-    setSettings(setData){
-         return new Promise(resolve => {
-        this.http.post('https://blogsterlnew.herokuapp.com/setting/set', setData)
-          .map(res => res.json())
-          .subscribe(data => {
-            this.data = data;
-            resolve(this.data);
-          }, err => {
-            resolve(err);
-          });
-      });
-    }
+  // Default first setting empty var
+  setSettings(setData) {
+    return new Promise(resolve => {
+      this.http.post('https://blogsterlnew.herokuapp.com/setting/set', setData)
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        }, err => {
+          resolve(err);
+        });
+    });
+  }
 
-     // Update setting empty var
-    updateSettings(setData){
-         return new Promise(resolve => {
-        this.http.post('https://blogsterlnew.herokuapp.com/setting/update', setData)
-          .map(res => res.json())
-          .subscribe(data => {
-            this.data = data;
-            resolve(this.data);
-          }, err => {
-            resolve(err);
-          });
-      });
-    }
+  // Update setting empty var
+  updateSettings(setData) {
+    return new Promise(resolve => {
+      this.http.post('https://blogsterlnew.herokuapp.com/setting/update', setData)
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        }, err => {
+          resolve(err);
+        });
+    });
+  }
 
-    // To suspend the User
-    suspendUser(id){
-         return new Promise(resolve => {
-        this.http.get('https://blogsterlnew.herokuapp.com/suspend/'+id)
-          .map(res => res.json())
-          .subscribe(data => {
-            this.data = data;
-            resolve(this.data);
-          }, err => {
-            resolve(err);
-          });
-      });
-    }
+  // To suspend the User
+  suspendUser(id) {
+    return new Promise(resolve => {
+      this.http.get('https://blogsterlnew.herokuapp.com/suspend/' + id)
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        }, err => {
+          resolve(err);
+        });
+    });
+  }
 
-    // To Activate the Suspended User
-    activateUser(id){
-         return new Promise(resolve => {
-        this.http.get('https://blogsterlnew.herokuapp.com/activate/'+id)
-          .map(res => res.json())
-          .subscribe(data => {
-            this.data = data;
-            resolve(this.data);
-          }, err => {
-            resolve(err);
-          });
-      });
-    }
+  // To Activate the Suspended User
+  activateUser(id) {
+    return new Promise(resolve => {
+      this.http.get('https://blogsterlnew.herokuapp.com/activate/' + id)
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        }, err => {
+          resolve(err);
+        });
+    });
+  }
 }

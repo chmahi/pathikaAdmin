@@ -1,0 +1,45 @@
+<div id="page-wrapper">
+    <div class="graphs">
+        <h3 class="blank1">List Emails</h3>
+        <div class="xs tabls">
+            <div class="bs-example4" data-example-id="contextual-table">
+
+                <!-- Table starts -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>S.no</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>website</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="active" *ngFor="let email of emails let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{email.name}}</td>
+                            <td>{{email.email}}</td>
+                            <td>{{email.phone}}</td>
+                            <td>{{email.website}}</td>
+                            <td>
+                                <button type="button" (click)="suspendUser(email.id)" class="btn btn_5 btn-lg btn-primary">Show message</button>
+                                <button type="button" (click)="activateUser(email.id)" class="btn btn_5 btn-lg btn-warning">Delete</button>
+                                <!-- <button type="button" class="btn btn_5 btn-lg btn-primary">View</button> -->
+                                <!-- <button type="button" class="btn btn_5 btn-lg btn-primary">Notify</button> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- table end -->
+
+                <!-- No posts -->
+                <div *ngIf="emails.length == 0">
+                    No Posts Found
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

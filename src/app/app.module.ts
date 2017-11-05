@@ -30,6 +30,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EmailBoxComponent } from './email-box/email-box.component';
 
 // App Routes
 const appRoutes: Routes = [
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
     path: 'main', component: MainComponent, children: [
       { path: 'Dashboard', component: DashboardComponent },
       { path: 'ListAllUsersComponent', component: ListAllUsersComponent },
+      { path: 'emailBox', component: EmailBoxComponent },
       { path: 'UserViewsComponent', component: UserViewsComponent },
       { path: 'AddBlocksComponent', component: AddBlocksComponent },
       { path: 'AllPostsComponent/:id', component: AllPostsComponent },
@@ -96,6 +98,7 @@ export class safeHtmlURL implements PipeTransform {
     SettingsComponent,
     ChangePasswordComponent,
     DashboardComponent,
+    EmailBoxComponent,
 
   ],
   imports: [
