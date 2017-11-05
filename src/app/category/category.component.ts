@@ -29,7 +29,6 @@ export class CategoryComponent implements OnInit {
 
     // Initial Loading
     this.Getcategories();
-
     window.scrollTo(0, 0);
   }
 
@@ -64,6 +63,7 @@ export class CategoryComponent implements OnInit {
         console.log(err);
       });
   }
+  
   // For add category 
   addCategory(validVal: NgForm) {
     this.loading = true;

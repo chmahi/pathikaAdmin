@@ -1,15 +1,21 @@
+
+// External Imports
 import { Component, OnInit, ViewChild, ViewEncapsulation  } from '@angular/core';
-import { BlogAdminService } from '../providers/blog-admin.service';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import{FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {Router, NavigationExtras} from '@angular/router';
-// import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { BsModalComponent  } from 'ng2-bs3-modal';
+
+// Internal Imports
+import { BlogAdminService } from '../providers/blog-admin.service';
+
+// Component Builder
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
+
 export class SigninComponent implements OnInit {
   @ViewChild('myFirstModal')
   modal: BsModalComponent;
@@ -29,10 +35,14 @@ export class SigninComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  // To Modal Popup
   open(textContent:any) {
     this.message = textContent;
     this.modal.open('sm');
   }
+
+  // To get Login
   errorText = "";
   login(validVal: NgForm) {    
     if(validVal.valid){

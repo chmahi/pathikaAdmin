@@ -1,3 +1,5 @@
+
+// External imports
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -41,6 +43,7 @@ export class BlogAdminService {
         });
     });
   }
+
   // For login
   public login(data) {
     return new Promise(resolve => {
@@ -55,6 +58,7 @@ export class BlogAdminService {
         });
     });
   }
+
   // For add category
   public AddCategory(data) {
     return new Promise(resolve => {
@@ -82,6 +86,7 @@ export class BlogAdminService {
         });
     });
   }
+
   // For trashed Posts 
   trashedPosts() {
     return new Promise(resolve => {
@@ -95,6 +100,7 @@ export class BlogAdminService {
         });
     });
   }
+
   // For reported Posts 
   reportedPosts() {
     return new Promise(resolve => {
@@ -152,6 +158,7 @@ export class BlogAdminService {
     });
   }
 
+  // To Get All mails
   getAllemail() {
     return new Promise(resolve => {
       this.http.get('https://blogsterlnew.herokuapp.com/mail/getall/')
@@ -162,7 +169,6 @@ export class BlogAdminService {
         });
     });
   }
-
 
   // Edit profile by idvalue
   public editProfile(idval, data) {
@@ -177,7 +183,6 @@ export class BlogAdminService {
         });
     });
   }
-
 
   // To upload a File
   public fileUploadBase64(fileVal) {

@@ -103,11 +103,13 @@ EditUser(){
    })
 }
 
+// Cropped Images
 cropped(bounds:Bounds) {
   this.croppedHeight =bounds.bottom-bounds.top;
   this.croppedWidth = bounds.right-bounds.left;
 }
 
+// To File Change Listener
 fileChangeListener($event) {
   var image:any = new Image();
   var file:File = $event.target.files[0];
@@ -121,7 +123,7 @@ fileChangeListener($event) {
   myReader.readAsDataURL(file);
   }
 
-
+// For File Upload
  public uploadImageFile(fileVal){
     // this.modalBig.close();
     // this.showSpinner = true;
@@ -142,6 +144,7 @@ fileChangeListener($event) {
     });
  }
 
+//  For cropping
 myfile:any;
 cropImage() {
     this.cropBox.open('md');

@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 
 // Internal imports
 import { BlogAdminService } from '../providers/blog-admin.service';
+
+// Component Builder
 @Component({
   selector: 'app-trashed-posts',
   templateUrl: './trashed-posts.component.html',
