@@ -9,7 +9,7 @@ import { MainContentComponent } from '../main-content/main-content.component';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  
+
   constructor() { }
 
   ngOnInit() {

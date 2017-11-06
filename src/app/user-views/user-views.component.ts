@@ -19,7 +19,7 @@ export class UserViewsComponent implements OnInit {
   @ViewChild('modalNew')
   modal: BsModalComponent;
   message: any;
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None;
   @ViewChild('croppImage')
   cropBox: BsModalComponent;
   data1: any;
@@ -32,7 +32,7 @@ export class UserViewsComponent implements OnInit {
   croppedHeight: number;
   constructor(private blogAdmin: BlogAdminService) {
     window.scrollTo(0, 0);
-    this.name = 'Angular2'
+    this.name = 'Angular2';
     this.cropperSettings1 = new CropperSettings();
     this.cropperSettings1.width = 200;
     this.cropperSettings1.height = 200;
@@ -61,7 +61,7 @@ export class UserViewsComponent implements OnInit {
   // To get All Users
   GetUser() {
     this.loading = true;
-    var a = JSON.parse(localStorage.getItem('userData'));
+    const a = JSON.parse(localStorage.getItem('userData'));
     console.log(a.firstname);
     this.blogAdmin.getUserDetails(a.userId)
       .then(data => {
@@ -84,16 +84,15 @@ export class UserViewsComponent implements OnInit {
   // To Edit User
   EditUser() {
     this.loading = true;
-    var a = JSON.parse(localStorage.getItem('userData'));
+    const a = JSON.parse(localStorage.getItem('userData'));
 
     this.blogAdmin.editProfile(a.userId, this.users)
       .then(data => {
         this.loading = false;
-        this.openMessage("Update Successfull");
-        // console.log(data);
-        console.log(JSON.stringify(data))
+        this.openMessage('Update Successfull');
+        console.log(JSON.stringify(data));
         this.updatedData = data;
-        var userInfo = {
+        const userInfo = {
           firstname: this.updatedData[0].firstname,
           lastname: this.updatedData[0].lastname,
           email: this.updatedData[0].email,
@@ -103,7 +102,7 @@ export class UserViewsComponent implements OnInit {
           country: this.updatedData[0].country
         };
         localStorage.setItem('userData', JSON.stringify(userInfo));
-      })
+      });
   }
 
   // Cropped Images
@@ -114,10 +113,10 @@ export class UserViewsComponent implements OnInit {
 
   // To File Change Listener
   fileChangeListener($event) {
-    var image: any = new Image();
-    var file: File = $event.target.files[0];
-    var myReader: FileReader = new FileReader();
-    var that = this;
+    const image: any = new Image();
+    const file: File = $event.target.files[0];
+    const myReader: FileReader = new FileReader();
+    const that = this;
     myReader.onloadend = function (loadEvent: any) {
       image.src = loadEvent.target.result;
     };
@@ -131,10 +130,10 @@ export class UserViewsComponent implements OnInit {
     this.blogAdmin.fileUploadBase64(fileVal)
       .then(data => {
         this.loading = false;
-        this.openMessage("Image upload successfull");
+        this.openMessage('Image upload successfull');
         this.myfile = data;
         this.users.imageURL = this.myfile.imageURL;
-      }, //Bind to view
+      }, // Bind to view
       err => {
         // Log errors if any
         console.log(err);

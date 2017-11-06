@@ -17,15 +17,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="active" *ngFor="let email of emails let i = index">
+                        <tr class="active" *ngFor="let email of emails | paginate: { itemsPerPage: itemsPPage, currentPage: curPage }; let i = index">
                             <th scope="row">{{i+1}}</th>
                             <td>{{email.name}}</td>
                             <td>{{email.email}}</td>
                             <td>{{email.phone}}</td>
                             <td>{{email.website}}</td>
                             <td>
-                                <button type="button" (click)="suspendUser(email.id)" class="btn btn_5 btn-lg btn-primary">Show message</button>
-                                <button type="button" (click)="activateUser(email.id)" class="btn btn_5 btn-lg btn-warning">Delete</button>
+                                <button type="button" class="btn btn_5 btn-lg btn-primary">Show message</button>
+                                <button type="button" class="btn btn_5 btn-lg btn-warning">Delete</button>
                             </td>
                         </tr>
                     </tbody>
@@ -36,7 +36,7 @@
                 <div *ngIf="emails.length == 0">
                     No Posts Found
                 </div>
-
+                <pagination-controls (pageChange)="changePage($event)" autoHide="true" previousLabel="Previous" nextLabel="Next"></pagination-controls>
             </div>
         </div>
     </div>

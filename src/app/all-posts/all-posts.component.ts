@@ -39,7 +39,7 @@ export class AllPostsComponent implements OnInit {
         this.posts = data;
       });
   }
-  
+
   // For pagination
   pagination(i, p) {
     return ((Number(this.curPage) - 1) * this.itemsPPage) + i + 1;

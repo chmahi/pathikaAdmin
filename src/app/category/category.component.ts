@@ -18,12 +18,17 @@ import { BlogAdminService } from '../providers/blog-admin.service';
 export class CategoryComponent implements OnInit {
   @ViewChild('myFirstModal')
   modal: BsModalComponent;
+
+  @ViewChild('categoryModal')
+  modalEdit: BsModalComponent;
+
   message: String;
   category: any = {};
   categories: any = {};
   Categories;
   loading = false;
   showLoading = false;
+  modalField:any = {};
   constructor(private blogAdmin: BlogAdminService) {
 
     // Initial Loading
@@ -61,10 +66,16 @@ export class CategoryComponent implements OnInit {
       });
   }
 
-  // For add category 
+  editcategory(popupvalue) {
+    this.modalField = popupvalue;
+    this.modalEdit.open();
+  }
+
+
+  // For add category
   addCategory(validVal: NgForm) {
     this.loading = true;
-    if (validVal.valid && this.category.imageLink != "") {
+    if (validVal.valid && this.category.imageLink !== '') {
 
       this.blogAdmin.AddCategory(this.category)
         .then(
@@ -79,13 +90,18 @@ export class CategoryComponent implements OnInit {
           // Log errors if any
           console.log(err);
         });
-    } else if (this.category.imageLink == "") {
-      this.open("Upload an image!!");
+    } else if (this.category.imageLink === '') {
+      this.open('Upload an image!!');
     } else {
-      this.open("Please fill all fields!!");
+      this.open('Please fill all fields!!');
     }
   }
-  
+
+  // To save category edit
+  saveCategory(){
+
+  }
+
   // To get categories
   Getcategories() {
     this.loading = true;

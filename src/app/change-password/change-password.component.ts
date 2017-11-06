@@ -24,13 +24,13 @@ export class ChangePasswordComponent implements OnInit {
   // To change password
   changePassword(validVal: NgForm) {
     if (validVal.valid) {
-      let userData: any = JSON.parse(localStorage.getItem('userData'));
+      const userData: any = JSON.parse(localStorage.getItem('userData'));
       this.blogAdmin.changePassword(userData.userId, this.userDetails)
         .then(
         data => {
           console.log(data);
           this.data = data;
-          if (this.data.status != 500) {
+          if (this.data.status !== 500) {
             validVal.resetForm();
           } else {
             console.log()

@@ -1,6 +1,7 @@
 
 // External Imports
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 // Internal imports
 import { BlogAdminService } from '../providers/blog-admin.service';
@@ -15,11 +16,16 @@ export class TrashedPostsComponent implements OnInit {
   userid;
   posts;
   loading = false;
-  constructor(private blogAdmin: BlogAdminService) {
+  curPage = '1';
+  itemsPPage = 10;
+  constructor(private blogAdmin: BlogAdminService, private route: ActivatedRoute, public router: Router) {
     window.scrollTo(0, 0);
 
     // Initial Loading
     this.trashedPosts();
+
+    // Route params to get current page
+    this.curPage = route.params['_value']['id'];
   }
 
   ngOnInit() {
@@ -32,6 +38,15 @@ export class TrashedPostsComponent implements OnInit {
       .then(data => {
         this.loading = false;
         this.posts = data;
-      })
+      });
+  }
+
+  // For pagination
+  pagination(i, p) {
+    return ((Number(this.curPage) - 1) * this.itemsPPage) + i + 1;
+  }
+  changePage(event) {
+    this.router.navigate(['/main/TrashedPostsComponent/' + event]);
+    this.curPage = event;
   }
 }
