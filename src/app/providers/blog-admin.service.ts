@@ -10,7 +10,7 @@ export class BlogAdminService {
   data;
   options;
   constructor(public http: Http) {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
     this.options = new RequestOptions({ headers: headers });
@@ -30,7 +30,7 @@ export class BlogAdminService {
     });
   }
 
-  // For get all posts
+  // To get all posts
   getallposts() {
     return new Promise(resolve => {
       this.http.get('https://blogsterlnew.herokuapp.com/posts')
@@ -44,10 +44,10 @@ export class BlogAdminService {
     });
   }
 
-  // For login
-  public login(data) {
+  // To login
+  public login(loginData) {
     return new Promise(resolve => {
-      this.http.post('https://blogsterlnew.herokuapp.com/login', data)
+      this.http.post('https://blogsterlnew.herokuapp.com/login', loginData)
         .map(res => res.json())
         .subscribe(data => {
           console.log(data.header);
@@ -59,10 +59,10 @@ export class BlogAdminService {
     });
   }
 
-  // For add category
-  public AddCategory(data) {
+  // To add category
+  public AddCategory(addCategorydata) {
     return new Promise(resolve => {
-      this.http.post('https://blogsterlnew.herokuapp.com/category', data)
+      this.http.post('https://blogsterlnew.herokuapp.com/category', addCategorydata)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -73,7 +73,7 @@ export class BlogAdminService {
     });
   }
 
-  // For get category
+  // To get category
   getCategory() {
     return new Promise(resolve => {
       this.http.get('https://blogsterlnew.herokuapp.com/category')
@@ -87,7 +87,7 @@ export class BlogAdminService {
     });
   }
 
-  // For trashed Posts 
+  // To trashed Posts
   trashedPosts() {
     return new Promise(resolve => {
       this.http.get('https://blogsterlnew.herokuapp.com/trashedPosts')
@@ -101,7 +101,7 @@ export class BlogAdminService {
     });
   }
 
-  // For reported Posts 
+  // To reported Posts
   reportedPosts() {
     return new Promise(resolve => {
       this.http.get('https://blogsterlnew.herokuapp.com/reportedPosts')
@@ -114,11 +114,12 @@ export class BlogAdminService {
         });
     });
   }
-  // For files Upload
+
+  // To files Upload
   fileUpload(file) {
     console.log(file);
-    let headers = new Headers();
-    let formData: FormData = new FormData();
+    const headers = new Headers();
+    const formData: FormData = new FormData();
     formData.append('content', file);
     return new Promise(resolve => {
       this.http.post('https://blogsterlnew.herokuapp.com/file/upload', formData, {
@@ -129,7 +130,7 @@ export class BlogAdminService {
           // console.log(data)
           this.data = data;
           resolve(this.data);
-        })
+        });
     });
   }
 
@@ -171,9 +172,9 @@ export class BlogAdminService {
   }
 
   // Edit profile by idvalue
-  public editProfile(idval, data) {
+  public editProfile(idval, editProfiledata) {
     return new Promise(resolve => {
-      this.http.post('https://blogsterlnew.herokuapp.com/profileEdit/' + idval, data)
+      this.http.post('https://blogsterlnew.herokuapp.com/profileEdit/' + idval, editProfiledata)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -186,25 +187,24 @@ export class BlogAdminService {
 
   // To upload a File
   public fileUploadBase64(fileVal) {
-    var data: any = {
+    const fileData: any = {
       imgbase64: fileVal
-    }
-
+    };
     return new Promise(resolve => {
-      this.http.post('https://blogsterlnew.herokuapp.com/file/upload64/', data)
+      this.http.post('https://blogsterlnew.herokuapp.com/file/upload64/', fileData)
         .map(res => res.json())
         .subscribe(data => {
           // console.log(data)
           this.data = data;
           resolve(this.data);
-        })
+        });
     });
   }
 
-  // For ads
-  public adsBlock(data) {
+  // To ads
+  public adsBlock(adsBlockdata) {
     return new Promise(resolve => {
-      this.http.post('https://blogsterlnew.herokuapp.com/addAd', data)
+      this.http.post('https://blogsterlnew.herokuapp.com/addAd', adsBlockdata)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -215,11 +215,11 @@ export class BlogAdminService {
     });
   }
 
-  // to Reset ads
-  public resetAds(data) {
-    console.log(JSON.stringify(data));
+  // To Reset ads
+  public resetAds(resetAdsdata) {
+    console.log(JSON.stringify(resetAdsdata));
     return new Promise(resolve => {
-      this.http.post('https://blogsterlnew.herokuapp.com/resetAd', data)
+      this.http.post('https://blogsterlnew.herokuapp.com/resetAd', resetAdsdata)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -230,10 +230,10 @@ export class BlogAdminService {
     });
   }
 
-  // For change password
-  public changePassword(userId, data) {
+  // To change password
+  public changePassword(userId, changePasswordData) {
     return new Promise(resolve => {
-      this.http.post('https://blogsterlnew.herokuapp.com/user/' + userId + '/change-password', data)
+      this.http.post('https://blogsterlnew.herokuapp.com/user/' + userId + '/change-password', changePasswordData)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -244,7 +244,7 @@ export class BlogAdminService {
     });
   }
 
-  // For get ads  
+  // To get ads
   getadsBlock() {
     return new Promise(resolve => {
       this.http.get('https://blogsterlnew.herokuapp.com/getAds/')
@@ -258,7 +258,7 @@ export class BlogAdminService {
     });
   }
 
-  // Get Settings Data
+  // To Get Settings Data
   getSettings() {
     return new Promise(resolve => {
       this.http.get('https://blogsterlnew.herokuapp.com/setting/get')
@@ -287,9 +287,9 @@ export class BlogAdminService {
   }
 
   // Update setting empty var
-  updateSettings(setData) {
+  updateSettings(updateData) {
     return new Promise(resolve => {
-      this.http.post('https://blogsterlnew.herokuapp.com/setting/update', setData)
+      this.http.post('https://blogsterlnew.herokuapp.com/setting/update', updateData)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;

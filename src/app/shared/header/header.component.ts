@@ -24,17 +24,17 @@ export class HeaderComponent implements OnInit {
     console.log(this.user);
   }
 
-  // To get user name  
+  // To get user name
   getUsername() {
     this.user = JSON.parse(localStorage.getItem('userData'));
     return this.user.firstname;
   }
 
   getimage(imageurl) {
-    if(imageurl){
-     return imageurl;
+    if (imageurl) {
+      return imageurl;
     } else {
-      return 'assets/images/user.png'
+      return 'assets/images/user.png';
     }
   }
 
@@ -42,13 +42,13 @@ export class HeaderComponent implements OnInit {
   toggleMenu() {
 
     if (jQuery('body').hasClass('left-side-collapsed')) {
-      jQuery('body').removeClass('left-side-collapsed')
+      jQuery('body').removeClass('left-side-collapsed');
     } else {
-      jQuery('body').addClass('left-side-collapsed')
+      jQuery('body').addClass('left-side-collapsed');
     }
 
-    var body = jQuery('body');
-    var bodyposition = body.css('position');
+    const body = jQuery('body');
+    const bodyposition = body.css('position');
   }
 
   ngOnInit() {

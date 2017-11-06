@@ -27,13 +27,12 @@ export class AddBlocksComponent implements OnInit {
   user: any = {};
   selectedValue = null;
   adPlacementsValue: any = [
-    { id: "S-TOP", name: "Sidebar TOP" },
-    { id: "S-BOT", name: "Sidebar Bottom" },
-    { id: "SPP", name: "Single Post page" },
-    { id: "HOME", name: "Home page" }
-  ];;
+    { id: 'S-TOP', name: 'Sidebar TOP' },
+    { id: 'S-BOT', name: 'Sidebar Bottom' },
+    { id: 'SPP', name: 'Single Post page' },
+    { id: 'HOME', name: 'Home page' }
+  ];
   constructor(private blogAdmin: BlogAdminService) {
-
     // To Get data from the Local Storage
     this.user = JSON.parse(localStorage.getItem('userData'));
 
@@ -49,7 +48,7 @@ export class AddBlocksComponent implements OnInit {
     validVal.resetForm();
   }
 
-  // For add Ads 
+  // For add Ads
   AddadsBlock(validVal: NgForm) {
     this.loading = true;
     this.blogAdmin.adsBlock(this.add)
@@ -76,12 +75,14 @@ export class AddBlocksComponent implements OnInit {
     this.blogAdmin.getadsBlock()
       .then(data => {
         this.loading = false;
-        var dataHold: any = data;
+        const dataHold: any = data;
         dataHold.forEach(element => {
-          if (element.blockedStatus)
+          if (element.blockedStatus) {
             this.adds.push(element);
-          else
+          } else {
             this.noAds.push(element);
+          }
+
         });
       });
   }
@@ -89,7 +90,7 @@ export class AddBlocksComponent implements OnInit {
   // Reset Ads
   resetadsBlock(adId) {
     this.loading = true;
-    var val = {
+    const val = {
       adId: adId
     };
     this.blogAdmin.resetAds(val)

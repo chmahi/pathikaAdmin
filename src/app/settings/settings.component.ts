@@ -25,7 +25,7 @@ export class SettingsComponent implements OnInit {
   ngOnInit() {
   }
 
-// To update Settings
+  // To update Settings
   settingDataFub() {
     this.loading = true;
     this.blogAdmin.updateSettings(this.settingData)
@@ -34,7 +34,7 @@ export class SettingsComponent implements OnInit {
         console.log(data[0]);
         this.settingData = data[0];
         this.getSettings();
-      })
+      });
   }
 
   // To get Settings
@@ -43,39 +43,38 @@ export class SettingsComponent implements OnInit {
     this.blogAdmin.getSettings()
       .then(data => {
         this.loading = false;
-        var some: any = data;
-        if (some.length == 0) {
+        const some: any = data;
+        if (some.length === 0) {
           this.firstRun();
         }
         console.log(data[0]);
         this.settingData = data[0];
-        
-      })
+      });
   }
 
   // To set Settings
   firstRun() {
-    var firstBasic = {
-      websiteTitle: "",
-      Address1: "",
-      Address2: "",
-      FBAppId: "",
-      facebook: "",
-      linkedin: "",
-      youtube: "",
-      twitter: "",
-      instagram: "",
-      contactMail: "",
-      API: "",
-      titleCss: ""
-    }
+    const firstBasic = {
+      websiteTitle: '',
+      Address1: '',
+      Address2: '',
+      FBAppId: '',
+      facebook: '',
+      linkedin: '',
+      youtube: '',
+      twitter: '',
+      instagram: '',
+      contactMail: '',
+      API: '',
+      titleCss: ''
+    };
     this.blogAdmin.setSettings(firstBasic)
       .then(data => {
         this.loading = false;
         console.log(data[0]);
         this.settingData = data[0];
         this.getSettings();
-      })
+      });
   }
 
 }

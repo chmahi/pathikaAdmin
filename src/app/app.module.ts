@@ -38,13 +38,13 @@ const appRoutes: Routes = [
   {
     path: 'main', component: MainComponent, children: [
       { path: 'Dashboard', component: DashboardComponent },
-      { path: 'ListAllUsersComponent', component: ListAllUsersComponent },
-      { path: 'emailBox', component: EmailBoxComponent },
+      { path: 'ListAllUsersComponent/:id', component: ListAllUsersComponent },
+      { path: 'emailBox/:id', component: EmailBoxComponent },
       { path: 'UserViewsComponent', component: UserViewsComponent },
       { path: 'AddBlocksComponent', component: AddBlocksComponent },
       { path: 'AllPostsComponent/:id', component: AllPostsComponent },
-      { path: 'ReportedPostsComponent', component: ReportedPostsComponent },
-      { path: 'TrashedPostsComponent', component: TrashedPostsComponent },
+      { path: 'ReportedPostsComponent/:id', component: ReportedPostsComponent },
+      { path: 'TrashedPostsComponent/:id', component: TrashedPostsComponent },
       { path: 'CategoryComponent', component: CategoryComponent },
       { path: 'Settings', component: SettingsComponent },
       { path: 'change-password', component: ChangePasswordComponent }
@@ -60,17 +60,17 @@ const appRoutes: Routes = [
 export class SafeHtmlPipe implements PipeTransform {
   constructor(private sanitized: DomSanitizer) { }
   transform(value) {
-    console.log(this.sanitized.bypassSecurityTrustHtml(value)["changingThisBreaksApplicationSecurity"]);
-    return "url(" + this.sanitized.bypassSecurityTrustHtml(value)["changingThisBreaksApplicationSecurity"] + ")";
+    console.log(this.sanitized.bypassSecurityTrustHtml(value)['changingThisBreaksApplicationSecurity']);
+    return 'url(' + this.sanitized.bypassSecurityTrustHtml(value)['changingThisBreaksApplicationSecurity'] + ')';
   }
 }
 
 @Pipe({ name: 'safeHtmlURL' })
-export class safeHtmlURL implements PipeTransform {
+export class SafeHtmlURL implements PipeTransform {
   constructor(private sanitized: DomSanitizer) { }
   transform(value) {
-    console.log(this.sanitized.bypassSecurityTrustHtml(value)["changingThisBreaksApplicationSecurity"]);
-    return this.sanitized.bypassSecurityTrustHtml(value)["changingThisBreaksApplicationSecurity"];
+    console.log(this.sanitized.bypassSecurityTrustHtml(value)['changingThisBreaksApplicationSecurity']);
+    return this.sanitized.bypassSecurityTrustHtml(value)['changingThisBreaksApplicationSecurity'];
   }
 }
 
@@ -79,7 +79,7 @@ export class safeHtmlURL implements PipeTransform {
   declarations: [
     AppComponent,
     SafeHtmlPipe,
-    safeHtmlURL,
+    SafeHtmlURL,
     SideBarComponent,
     HeaderComponent,
     FooterComponent,

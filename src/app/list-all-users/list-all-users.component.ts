@@ -1,6 +1,7 @@
 
 // External imports
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 // Internal imports
 import { BlogAdminService } from '../providers/blog-admin.service';
@@ -15,11 +16,16 @@ import { BlogAdminService } from '../providers/blog-admin.service';
 export class ListAllUsersComponent implements OnInit {
   users;
   loading = false;
-  constructor(private blogAdmin: BlogAdminService) {
+  curPage = '1';
+  itemsPPage = 10;
+  constructor(private blogAdmin: BlogAdminService, private route: ActivatedRoute, public router: Router) {
     window.scrollTo(0, 0);
 
     // Initial Loading
     this.GetAllUsers();
+
+    // Route params to get current page
+    this.curPage = route.params['_value']['id'];
   }
 
   ngOnInit() {
@@ -53,5 +59,14 @@ export class ListAllUsersComponent implements OnInit {
         this.loading = false;
         this.GetAllUsers();
       });
+  }
+
+  // For pagination
+  pagination(i, p) {
+    return ((Number(this.curPage) - 1) * this.itemsPPage) + i + 1;
+  }
+  changePage(event) {
+    this.router.navigate(['/main/ListAllUsersComponent/' + event]);
+    this.curPage = event;
   }
 }

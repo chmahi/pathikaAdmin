@@ -21,15 +21,13 @@ export class SigninComponent implements OnInit {
   modal: BsModalComponent;
   message: String;
   data;
-  private userData: any = {};
+  public userData: any = {};
   constructor(public router: Router, private blogAdmin: BlogAdminService) {
     window.scrollTo(0, 0);
-    var a = JSON.parse(localStorage.getItem('userData'));
+    const a = JSON.parse(localStorage.getItem('userData'));
     if (a) {
-
-      this.router.navigate(['/main/ListAllUsersComponent']);
+      this.router.navigate(['/main/ListAllUsersComponent/1']);
     }
-    this.userData = { "email": "", "password": "" };
   }
 
   ngOnInit() {
@@ -42,17 +40,17 @@ export class SigninComponent implements OnInit {
   }
 
   // To get Login
-  errorText = "";
+  errorText = '';
   login(validVal: NgForm) {
     if (validVal.valid) {
       this.blogAdmin.login(this.userData)
         .then(
         data => {
           this.open('Login Successfully');
-          var tempData = data;
+          const tempData = data;
           this.data = data;
-          if (this.data.status == 200) {
-            var userInfo = {
+          if (this.data.status === 200) {
+            const userInfo = {
               firstname: this.data.user.firstname,
               lastname: this.data.user.lastname,
               email: this.data.user.email,
@@ -66,15 +64,14 @@ export class SigninComponent implements OnInit {
             validVal.resetForm();
             this.router.navigate(['/main/ListAllUsersComponent']);
 
-          }
-          else {
+          } else {
             console.log(data);
             this.errorText = JSON.parse(this.data['_body']).error;
           }
 
         });
     } else {
-      this.open("Fill all fields");
+      this.open('Fill all fields');
     }
   }
 }

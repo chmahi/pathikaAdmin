@@ -17,7 +17,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="active" *ngFor="let user of users let i = index">
+                        <tr class="active" *ngFor="let user of users | paginate: { itemsPerPage: itemsPPage, currentPage: curPage }; let i = index">
                             <th scope="row">{{i+1}}</th>
                             <td>{{user.firstname}}</td>
                             <td>{{user.email}}</td>
@@ -36,7 +36,7 @@
                 <div *ngIf="users.length == 0">
                     No Posts Found
                 </div>
-
+                <pagination-controls (pageChange)="changePage($event)" autoHide="true" previousLabel="Previous" nextLabel="Next"></pagination-controls>
             </div>
         </div>
     </div>

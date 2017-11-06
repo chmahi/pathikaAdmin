@@ -61,10 +61,10 @@ export class CategoryComponent implements OnInit {
       });
   }
 
-  // For add category 
+  // For add category
   addCategory(validVal: NgForm) {
     this.loading = true;
-    if (validVal.valid && this.category.imageLink != "") {
+    if (validVal.valid && this.category.imageLink !== '') {
 
       this.blogAdmin.AddCategory(this.category)
         .then(
@@ -79,10 +79,10 @@ export class CategoryComponent implements OnInit {
           // Log errors if any
           console.log(err);
         });
-    } else if (this.category.imageLink == "") {
-      this.open("Upload an image!!");
+    } else if (this.category.imageLink === '') {
+      this.open('Upload an image!!');
     } else {
-      this.open("Please fill all fields!!");
+      this.open('Please fill all fields!!');
     }
   }
   // To get categories
