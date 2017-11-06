@@ -20,39 +20,38 @@ export class ListAllUsersComponent implements OnInit {
 
     // Initial Loading
     this.GetAllUsers();
-   }
+  }
 
   ngOnInit() {
   }
-  
- // To get All Users
- GetAllUsers() {
-  this.loading = true;
-  this.blogAdmin.getAllusers()
-    .then(data => { 
-      this.loading = false;     
-      this.users = data;
-    });
-}
 
-// To Suspend User
- suspendUser(idVal) {
-  this.loading = true;
-  this.blogAdmin.suspendUser(idVal)
-    .then(data => { 
-      this.loading = false;     
-       this.GetAllUsers();
-    });
-}
+  // To get All Users
+  GetAllUsers() {
+    this.loading = true;
+    this.blogAdmin.getAllusers()
+      .then(data => {
+        this.loading = false;
+        this.users = data;
+      });
+  }
 
+  // To Suspend User
+  suspendUser(idVal) {
+    this.loading = true;
+    this.blogAdmin.suspendUser(idVal)
+      .then(data => {
+        this.loading = false;
+        this.GetAllUsers();
+      });
+  }
 
-// To activate user
- activateUser(idVal) {
-  this.loading = true;
-  this.blogAdmin.activateUser(idVal)
-    .then(data => { 
-      this.loading = false;     
-       this.GetAllUsers();
-    });
-}
+  // To activate user
+  activateUser(idVal) {
+    this.loading = true;
+    this.blogAdmin.activateUser(idVal)
+      .then(data => {
+        this.loading = false;
+        this.GetAllUsers();
+      });
+  }
 }

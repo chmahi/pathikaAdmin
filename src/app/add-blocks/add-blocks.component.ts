@@ -62,7 +62,6 @@ export class AddBlocksComponent implements OnInit {
         }
       },
       err => {
-        // Log errors if any
         console.log(err);
       });
 
@@ -99,7 +98,6 @@ export class AddBlocksComponent implements OnInit {
         this.GetadsBlock();
       },
       err => {
-        // Log errors if any
         console.log(err);
       });
 

@@ -18,7 +18,6 @@ import { BlogAdminService } from '../providers/blog-admin.service';
 export class CategoryComponent implements OnInit {
   @ViewChild('myFirstModal')
   modal: BsModalComponent;
-  // encapsulation: ViewEncapsulation.None
   message: String;
   category: any = {};
   categories: any = {};
@@ -50,10 +49,8 @@ export class CategoryComponent implements OnInit {
   fileChange(fileInput: any) {
     this.showLoading = true;
     this.myfile = fileInput.target.files[0];
-    // let fileList: FileList = event.target.files;
     this.blogAdmin.fileUpload(this.myfile)
       .then(data => {
-        // console.log(data);
         this.category.imageLink = '';
         this.category.imageLink = (data['files'][0].url);
         this.showLoading = false;
@@ -63,7 +60,7 @@ export class CategoryComponent implements OnInit {
         console.log(err);
       });
   }
-  
+
   // For add category 
   addCategory(validVal: NgForm) {
     this.loading = true;
@@ -88,6 +85,7 @@ export class CategoryComponent implements OnInit {
       this.open("Please fill all fields!!");
     }
   }
+  
   // To get categories
   Getcategories() {
     this.loading = true;

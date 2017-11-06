@@ -14,9 +14,9 @@ import { BlogAdminService } from '../providers/blog-admin.service';
 export class ReportedPostsComponent implements OnInit {
   posts;
   loading = false;
-  constructor(private blogAdmin: BlogAdminService) { 
+  constructor(private blogAdmin: BlogAdminService) {
     window.scrollTo(0, 0);
-    
+
     // Initial loading
     this.reportedPosts();
   }
@@ -24,13 +24,13 @@ export class ReportedPostsComponent implements OnInit {
   ngOnInit() {
   }
 
- // For delete posts
- reportedPosts(){
-  this.loading = true;
-  this.blogAdmin.reportedPosts()
-  .then(data =>{
-    this.loading = false;
-   this.posts = data;
-  })
-}
+  // For delete posts
+  reportedPosts() {
+    this.loading = true;
+    this.blogAdmin.reportedPosts()
+      .then(data => {
+        this.loading = false;
+        this.posts = data;
+      })
+  }
 }

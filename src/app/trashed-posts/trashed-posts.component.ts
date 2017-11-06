@@ -24,8 +24,8 @@ export class TrashedPostsComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  // For delete posts
+
+  // To delete posts
   trashedPosts() {
     this.loading = true;
     this.blogAdmin.trashedPosts()

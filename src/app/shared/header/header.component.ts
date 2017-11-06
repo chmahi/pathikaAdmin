@@ -22,43 +22,6 @@ export class HeaderComponent implements OnInit {
     // To get data from localstorage
     this.user = JSON.parse(localStorage.getItem('userData'));
     console.log(this.user);
-    // Menu Toggle
-    // jQuery('.toggle-btn').click(function() {
-    //     jQuery(".left-side").getNiceScroll().hide();
-
-    //     if (jQuery('body').hasClass('left-side-collapsed')) {
-    //         jQuery(".left-side").getNiceScroll().hide();
-    //     }
-    //     var body = jQuery('body');
-    //     var bodyposition = body.css('position');
-
-    //     if (bodyposition != 'relative') {
-
-    //         if (!body.hasClass('left-side-collapsed')) {
-    //             body.addClass('left-side-collapsed');
-    //             jQuery('.custom-nav ul').attr('style', '');
-
-    //             jQuery(this).addClass('menu-collapsed');
-
-    //         } else {
-    //             body.removeClass('left-side-collapsed chat-view');
-    //             jQuery('.custom-nav li.active ul').css({ display: 'block' });
-
-    //             jQuery(this).removeClass('menu-collapsed');
-
-    //         }
-    //     } else {
-
-    //         if (body.hasClass('left-side-show'))
-    //             body.removeClass('left-side-show');
-    //         else
-    //             body.addClass('left-side-show');
-
-    //         // mainContentHeightAdjust();
-    //     }
-
-    // });
-
   }
 
   // To get user name  
@@ -74,7 +37,6 @@ export class HeaderComponent implements OnInit {
       return this.user.imageURL;
     }
   }
-  
   // Toggle menu
   toggleMenu() {
 
@@ -88,37 +50,6 @@ export class HeaderComponent implements OnInit {
     var bodyposition = body.css('position');
   }
 
-
-
-
-
-
-  // Menu Toggle
-  // jQuery('.toggle-btn').click(function() {
-  //     jQuery(".left-side").getNiceScroll().hide();
-  //     if (jQuery('body').hasClass('left-side-collapsed')) {
-  //         jQuery(".left-side").getNiceScroll().hide();
-  //     }
-  //     var body = jQuery('body');
-  //     var bodyposition = body.css('position');
-  //     if (bodyposition != 'relative') {
-  //         if (!body.hasClass('left-side-collapsed')) {
-  //             body.addClass('left-side-collapsed');
-  //             jQuery('.custom-nav ul').attr('style', '');
-  //             jQuery(this).addClass('menu-collapsed');
-  //         } else {
-  //             body.removeClass('left-side-collapsed chat-view');
-  //             jQuery('.custom-nav li.active ul').css({ display: 'block' });
-  //             jQuery(this).removeClass('menu-collapsed');
-  //         }
-  //     } else {
-  //         if (body.hasClass('left-side-show'))
-  //             body.removeClass('left-side-show');
-  //         else
-  //             body.addClass('left-side-show');
-  //         // mainContentHeightAdjust();
-  //     }
-  // });
   ngOnInit() {
   }
 

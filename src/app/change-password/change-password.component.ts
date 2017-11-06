@@ -32,11 +32,9 @@ export class ChangePasswordComponent implements OnInit {
           this.data = data;
           if (this.data.status != 500) {
             validVal.resetForm();
-            // this.userData = {};
-            // this.open('Changed Successfully');
           } else {
             console.log()
-            // this.open(JSON.parse(this.data['_body']).error);
+     
           }
         });
     }
