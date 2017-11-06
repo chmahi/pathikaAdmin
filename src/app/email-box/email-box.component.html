@@ -24,8 +24,8 @@
                             <td>{{email.phone}}</td>
                             <td>{{email.website}}</td>
                             <td>
-                                <button type="button" class="btn btn_5 btn-lg btn-primary">Show message</button>
-                                <button type="button" class="btn btn_5 btn-lg btn-warning">Delete</button>
+                                <button type="button" class="btn btn_5 btn-lg btn-primary" (click)="showEmails(email)">Show message</button>
+                                <button type="button" (click)="DeleteEmail(email)"  class="btn btn_5 btn-lg btn-warning">Delete</button>
                             </td>
                         </tr>
                     </tbody>
@@ -41,3 +41,18 @@
         </div>
     </div>
 </div>
+
+
+<!-- modal popup start -->
+<bs-modal #myFirstModal>
+    
+        <bs-modal-body>
+            <div class="email">
+           <h4>{{modalFeild.name}}</h4>
+           <p>{{modalFeild.email}}</p>
+           <p>{{modalFeild.message}}</p>
+            </div>
+        </bs-modal-body>
+    
+    </bs-modal>
+    <!-- modal popup end -->

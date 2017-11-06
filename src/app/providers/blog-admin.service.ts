@@ -327,4 +327,43 @@ export class BlogAdminService {
         });
     });
   }
+  
+    // Delete Email by Id
+    deleteEmail(id) {
+      return new Promise(resolve => {
+        this.http.delete('https://blogsterlnew.herokuapp.com/mail/' + id)
+          .map(res => res.json())
+          .subscribe(data => {
+            this.data = data;
+            resolve(this.data);
+          });
+      });
+    }
+      // To suspend the User
+  showEmail() {
+    return new Promise(resolve => {
+      this.http.get('https://blogsterlnew.herokuapp.com/mail/getall/')
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        }, err => {
+          resolve(err);
+        });
+    });
+  }
+
+    // Edit Category by idvalue
+    public editCategory(idval, editCategorydata) {
+      return new Promise(resolve => {
+        this.http.post('https://blogsterlnew.herokuapp.com/category/' + idval, editCategorydata)
+          .map(res => res.json())
+          .subscribe(data => {
+            this.data = data;
+            resolve(this.data);
+          }, err => {
+            resolve(err);
+          });
+      });
+    }
 }
