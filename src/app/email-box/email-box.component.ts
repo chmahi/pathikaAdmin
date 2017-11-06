@@ -1,7 +1,8 @@
 
 // Extarnal imports
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { BsModalComponent } from 'ng2-bs3-modal';
 
 // Internal Imports
 import { BlogAdminService } from '../providers/blog-admin.service';
@@ -14,10 +15,14 @@ import { BlogAdminService } from '../providers/blog-admin.service';
 })
 
 export class EmailBoxComponent implements OnInit {
+  @ViewChild('myFirstModal')
+  modal: BsModalComponent;
+  message: String;
   loading = false;
   emails: any = [];
   curPage = '1';
   itemsPPage = 10;
+  modalFeild:any=[];
   constructor(private blogAdmin: BlogAdminService, private route: ActivatedRoute, public router: Router) {
 
     // Initial Loading
@@ -28,6 +33,12 @@ export class EmailBoxComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  // Modal poppup
+  open(textContent: any) {
+    this.message = textContent;
+    this.modal.open('sm');
   }
 
   // To get All users
@@ -47,6 +58,23 @@ export class EmailBoxComponent implements OnInit {
   changePage(event) {
     this.router.navigate(['/main/emailBox/' + event]);
     this.curPage = event;
+  }
+  // Delete Email
+  DeleteEmail(email) {
+    console.log(email);
+    this.blogAdmin.deleteEmail(email.id)
+      .then(data => {
+
+      }, // Bind to view
+      err => {
+        // Log errors if any
+        console.log(err);
+      });
+  }
+
+  showEmails(val) {
+    this.modalFeild = val;
+    this.modal.open();
   }
 
 }
