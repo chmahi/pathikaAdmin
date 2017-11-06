@@ -67,13 +67,14 @@ export class HeaderComponent implements OnInit {
     return this.user.firstname;
   }
 
-  getimage(imageurl) {
-    if(imageurl){
-     return imageurl;
+  getimage() {
+    if(!this.user.imageURL){     
+     return 'assets/images/user.png'
     } else {
-      return 'assets/images/user.png'
+      return this.user.imageURL;
     }
   }
+  
   // Toggle menu
   toggleMenu() {
 
