@@ -30,9 +30,12 @@ export class HeaderComponent implements OnInit {
     return this.user.firstname;
   }
 
-  getimage() {
-    this.user = JSON.parse(localStorage.getItem('userData'));
-    return this.user.imageURL;
+  getimage(imageurl) {
+    if(imageurl){
+     return imageurl;
+    } else {
+      return 'assets/images/user.png'
+    }
   }
 
   // Toggle menu

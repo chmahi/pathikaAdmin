@@ -1505,6 +1505,7 @@ i.fa.fa-tasks {
 
 .user-panel-top li a .profile_img i {
     position: absolute;
+    right: -26px;
 }
 
 .user-panel-top li a i span {
@@ -2087,6 +2088,13 @@ ul.dropdown-menu.drp-mnu li a i {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.profile_img span img {
+    width: 80%;
+    border-radius: 50%;
+    margin-top: 7px;
+    border: 1px solid #ccc;
 }
 
 .span_4 {
