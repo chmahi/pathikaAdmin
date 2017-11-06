@@ -85,6 +85,7 @@ export class CategoryComponent implements OnInit {
       this.open('Please fill all fields!!');
     }
   }
+
   // To get categories
   Getcategories() {
     this.loading = true;

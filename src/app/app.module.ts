@@ -50,9 +50,6 @@ const appRoutes: Routes = [
       { path: 'change-password', component: ChangePasswordComponent }
     ]
   },
-
-  // { path: 'category', component: CategoryComponent },
-  // { path: 'contact', component: ContactComponent },
 ];
 
 

@@ -18,7 +18,6 @@ export class AddBlocksComponent implements OnInit {
 
   @ViewChild('myFirstModal')
   modal: BsModalComponent;
-  // encapsulation: ViewEncapsulation.None
   message: String;
   loading = false;
   add: any = {};

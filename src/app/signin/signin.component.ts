@@ -24,6 +24,8 @@ export class SigninComponent implements OnInit {
   public userData: any = {};
   constructor(public router: Router, private blogAdmin: BlogAdminService) {
     window.scrollTo(0, 0);
+
+    // Initial Loading
     const a = JSON.parse(localStorage.getItem('userData'));
     if (a) {
       this.router.navigate(['/main/ListAllUsersComponent/1']);
