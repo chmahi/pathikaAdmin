@@ -64,7 +64,7 @@ export class SigninComponent implements OnInit {
             };
             localStorage.setItem('userData', JSON.stringify(userInfo));
             validVal.resetForm();
-            this.router.navigate(['/main/ListAllUsersComponent']);
+            this.router.navigate(['/main/ListAllUsersComponent/1']);
 
           } else {
             console.log(data);
