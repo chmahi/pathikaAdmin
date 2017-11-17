@@ -30,13 +30,15 @@ export class HeaderComponent implements OnInit {
     return this.user.firstname;
   }
 
+  // To Get Image
   getimage() {
-    if(!this.user.imageURL){     
-     return 'assets/images/user.png'
+    if (!this.user.imageURL) {
+      return 'assets/images/user.png'
     } else {
       return this.user.imageURL;
     }
   }
+
   // Toggle menu
   toggleMenu() {
 
@@ -52,7 +54,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-
 
   // To logout
   logout() {

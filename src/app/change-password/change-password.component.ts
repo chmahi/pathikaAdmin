@@ -34,7 +34,6 @@ export class ChangePasswordComponent implements OnInit {
             validVal.resetForm();
           } else {
             console.log()
-     
           }
         });
     }

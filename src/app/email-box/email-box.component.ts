@@ -22,7 +22,7 @@ export class EmailBoxComponent implements OnInit {
   emails: any = [];
   curPage = '1';
   itemsPPage = 10;
-  modalFeild:any=[];
+  modalFeild: any = [];
   constructor(private blogAdmin: BlogAdminService, private route: ActivatedRoute, public router: Router) {
 
     // Initial Loading
@@ -59,6 +59,7 @@ export class EmailBoxComponent implements OnInit {
     this.router.navigate(['/main/emailBox/' + event]);
     this.curPage = event;
   }
+
   // Delete Email
   DeleteEmail(email) {
     console.log(email);
@@ -72,6 +73,7 @@ export class EmailBoxComponent implements OnInit {
       });
   }
 
+  // Email popup
   showEmails(val) {
     this.modalFeild = val;
     this.modal.open();

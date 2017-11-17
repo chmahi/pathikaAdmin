@@ -36,6 +36,8 @@
                 <div *ngIf="emails.length == 0">
                     No Posts Found
                 </div>
+
+                <!-- pagination-controls -->
                 <pagination-controls (pageChange)="changePage($event)" autoHide="true" previousLabel="Previous" nextLabel="Next"></pagination-controls>
             </div>
         </div>
@@ -45,9 +47,6 @@
 
 <!-- modal popup start -->
 <bs-modal #myFirstModal>
-    <!-- <bs-modal-head>
-        Message
-    </bs-modal-head> -->
     <bs-modal-body>
         <div class="email">
             <h3>From</h3>

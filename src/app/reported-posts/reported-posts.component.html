@@ -38,6 +38,8 @@
                 <div *ngIf="posts.length == 0">
                     No Posts Found
                 </div>
+                
+                <!-- pagination-controls -->
                 <pagination-controls (pageChange)="changePage($event)" autoHide="true" previousLabel="Previous" nextLabel="Next"></pagination-controls>
             </div>
         </div>

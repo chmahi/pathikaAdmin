@@ -7,6 +7,8 @@ import { BsModalComponent } from 'ng2-bs3-modal';
 
 // Internal imports
 import { BlogAdminService } from '../providers/blog-admin.service';
+
+// Component Builder
 @Component({
   selector: 'app-user-views',
   templateUrl: './user-views.component.html',

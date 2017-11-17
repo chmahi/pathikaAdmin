@@ -1,3 +1,5 @@
+
+// External Imports
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -8,9 +10,9 @@ import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
 import { BsModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { ImageCropperComponent } from 'ng2-img-cropper';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
-// import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// Internal Imports
 import { AppComponent } from './app.component';
 import { BlogAdminService } from './providers/blog-admin.service';
 import { SideBarComponent } from './shared/side-bar/side-bar.component';
@@ -71,7 +73,7 @@ export class SafeHtmlURL implements PipeTransform {
   }
 }
 
-
+// Declared Modules
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,6 +100,8 @@ export class SafeHtmlURL implements PipeTransform {
     EmailBoxComponent,
 
   ],
+
+  // Imported Modules
   imports: [
     BrowserModule,
     HttpModule,
@@ -109,6 +113,8 @@ export class SafeHtmlURL implements PipeTransform {
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
+
+  // providrs
   providers: [BlogAdminService],
   bootstrap: [AppComponent]
 })

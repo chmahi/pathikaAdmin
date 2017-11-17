@@ -28,7 +28,7 @@ export class CategoryComponent implements OnInit {
   Categories;
   loading = false;
   showLoading = false;
-  modalField:any = {};
+  modalField: any = {};
   constructor(private blogAdmin: BlogAdminService) {
 
     // Initial Loading
@@ -66,6 +66,7 @@ export class CategoryComponent implements OnInit {
       });
   }
 
+  // Edit Category
   editcategory(popupvalue) {
     this.modalField = popupvalue;
     this.modalEdit.open();
@@ -95,11 +96,6 @@ export class CategoryComponent implements OnInit {
     } else {
       this.open('Please fill all fields!!');
     }
-  }
-
-  // To save category edit
-  saveCategory(){
-
   }
 
   // To get categories
